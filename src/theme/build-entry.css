@@ -1,0 +1,5 @@
+/* Solo para el build propio de la librería (dist/tup-arcade-ui.css):
+   un consumidor Tailwind debe importar "tup-arcade-ui/theme.css" en cambio,
+   después de su propio "@import tailwindcss;". */
+@import "tailwindcss";
+@import "./theme.css";

@@ -1,0 +1,110 @@
+/* Tokens de tema + estilos base de la librería.
+   Se importa DESPUÉS de "tailwindcss" en el proyecto consumidor:
+     @import "tailwindcss";
+     @import "tup-arcade-ui/theme.css";
+*/
+@import "nes.css/css/nes.min.css";
+
+/* Le dice al build de Tailwind del proyecto que consume esta librería que
+   también escanee estos componentes al generar utilidades — si no, cualquier
+   clase (con o sin opacidad) usada solo aquí adentro nunca se genera, porque
+   Tailwind no escanea node_modules por defecto. */
+@source "../components/**/*.{ts,tsx}";
+
+@theme {
+  --font-retro: 'Press Start 2P', monospace;
+  --font-arcade: 'VT323', monospace;
+
+  /* Utilidades de tema (bg-canvas, bg-surface, border-line, text-ink, etc.) */
+  --color-canvas: var(--bg-app);
+  --color-surface: var(--bg-surface);
+  --color-surface-2: var(--bg-surface-alt);
+  --color-line: var(--border-subtle);
+  --color-line-highlight: var(--border-highlight);
+  --color-ink: var(--text-primary);
+  --color-ink-soft: var(--text-muted);
+  --color-brand: var(--accent-primary);
+  --color-brand-2: var(--accent-secondary);
+  --color-gold: var(--accent-gold);
+  --color-danger: var(--accent-danger);
+  --color-success: var(--accent-success);
+}
+
+/* Paleta oficial: Tema Claro (gris cremita arcade) */
+:root,
+:root[data-theme='light'] {
+  --bg-app: #d6dcdd;
+  --bg-surface: #e6ebec;
+  --bg-surface-alt: #dce2e3;
+  --border-subtle: #b8c5c9;
+  --border-highlight: #b8c5c9;
+  --text-primary: #1e293b;
+  --text-muted: #64748b;
+  --accent-primary: #1e7a85;
+  --accent-secondary: #6e93a0;
+  --accent-gold: #f1b434;
+  --accent-danger: #e24a4a;
+  --accent-success: #2fa866;
+}
+
+/* Paleta oficial: Tema Oscuro (cyber / arcade dark) */
+:root[data-theme='dark'] {
+  --bg-app: #0b111e;
+  --bg-surface: #151e2e;
+  --bg-surface-alt: #101a29;
+  --border-subtle: #24334a;
+  --border-highlight: #8c733e;
+  --text-primary: #edf2f7;
+  --text-muted: #8a99ad;
+  --accent-primary: #d94e82;
+  --accent-secondary: #00bcd4;
+  --accent-gold: #f6ad3c;
+  --accent-danger: #ef4444;
+  --accent-success: #10b981;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: var(--bg-app);
+  color: var(--text-primary);
+  font-family: var(--font-arcade), monospace;
+  font-size: 18px;
+  letter-spacing: -0.02em;
+  -webkit-font-smoothing: antialiased;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+/* Scanline and retro CRT glow effect */
+.crt-overlay {
+  background: linear-gradient(
+    rgba(18, 16, 16, 0) 50%,
+    rgba(0, 0, 0, 0.25) 50%
+  ), linear-gradient(
+    90deg,
+    rgba(255, 0, 0, 0.03),
+    rgba(0, 255, 0, 0.01),
+    rgba(0, 0, 255, 0.03)
+  );
+  background-size: 100% 3px, 6px 100%;
+  pointer-events: none;
+}
+
+[data-theme='light'] .crt-overlay {
+  opacity: 0.35;
+}
+
+/* Fondos de cabecera de tarjeta: siempre oscuros para que el texto blanco
+   tenga contraste, sin perder el matiz de marca por curso. */
+.header-tint-brand {
+  background-color: color-mix(in srgb, var(--accent-primary) 35%, black);
+}
+
+.header-tint-brand-2 {
+  background-color: color-mix(in srgb, var(--accent-secondary) 35%, black);
+}
