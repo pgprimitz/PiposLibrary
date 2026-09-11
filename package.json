@@ -1,6 +1,6 @@
 {
   "name": "tup-arcade-ui",
-  "version": "0.2.1",
+  "version": "0.2.2",
   "private": true,
   "type": "module",
   "description": "Librería de componentes UI estilo arcade retro (TUP) — cards, botones, inputs, navbar, breadcrumb, footer, tema claro/oscuro e íconos pixel-art.",

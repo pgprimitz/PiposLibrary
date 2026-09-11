@@ -20,14 +20,24 @@ export const Breadcrumb: React.FC<BreadcrumbProps> = ({ items, onHome, homeLabel
       role="navigation"
       aria-label="breadcrumb"
     >
-      <button
-        type="button"
-        onClick={onHome}
-        title={homeLabel}
-        className="p-1 -ml-1 rounded text-ink-soft hover:text-brand-2 hover:bg-surface-2/60 transition-colors cursor-pointer flex items-center"
-      >
-        <Home className="w-3.5 h-3.5" />
-      </button>
+      {/* Without onHome there is nowhere to go — usually because this IS the
+          home screen — so the icon stays as a plain marker. Rendering a button
+          with hover styles and a pointer cursor would advertise an action that
+          does nothing. */}
+      {onHome ? (
+        <button
+          type="button"
+          onClick={onHome}
+          title={homeLabel}
+          className="p-1 -ml-1 rounded text-ink-soft hover:text-brand-2 hover:bg-surface-2/60 transition-colors cursor-pointer flex items-center"
+        >
+          <Home className="w-3.5 h-3.5" />
+        </button>
+      ) : (
+        <span title={homeLabel} className="p-1 -ml-1 text-ink-soft flex items-center">
+          <Home className="w-3.5 h-3.5" />
+        </span>
+      )}
 
       {items.map((item, i) => {
         const isLast = i === items.length - 1;
