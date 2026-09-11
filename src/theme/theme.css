@@ -8,8 +8,23 @@
 /* Le dice al build de Tailwind del proyecto que consume esta librería que
    también escanee estos componentes al generar utilidades — si no, cualquier
    clase (con o sin opacidad) usada solo aquí adentro nunca se genera, porque
-   Tailwind no escanea node_modules por defecto. */
+   Tailwind no escanea node_modules por defecto.
+
+   Hacen falta las dos rutas, y no son intercambiables:
+
+   - "../components/**" solo existe en este repo, para el playground.
+   - "../../dist/tup-arcade-ui.js" es la que vale para quien instala el paquete:
+     "files" publica únicamente dist, src/assets y este archivo, así que en
+     node_modules la carpeta de componentes NO existe. Tailwind ignora en
+     silencio un @source inexistente, de modo que con solo la primera ruta el
+     consumidor se queda sin NINGUNA clase interna de la librería y los
+     componentes salen sin estilos. Las clases sobreviven como literales en el
+     bundle, así que escanear el dist cubre ese caso.
+
+   Consecuencia del contrato: dist/ tiene que estar construido antes de
+   empaquetar, porque el CSS del consumidor depende de él. */
 @source "../components/**/*.{ts,tsx}";
+@source "../../dist/tup-arcade-ui.js";
 
 @theme {
   --font-retro: 'Press Start 2P', monospace;

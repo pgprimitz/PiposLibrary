@@ -54,3 +54,122 @@ export const PixelScroll: React.FC<PixelIconProps> = ({ className = 'w-5 h-5' })
     <path d="M6 5h4v1H6V5zm0 3h4v1H6V8zm0 3h3v1H6v-1z" fill="#854d0e" />
   </svg>
 );
+
+export const PixelHeart: React.FC<PixelIconProps> = ({ className = 'w-5 h-5' }) => (
+  <svg viewBox="0 0 16 16" fill="currentColor" className={className} style={{ imageRendering: 'pixelated' }}>
+    <path d="M2 3h4v1h4V3h4v5h-1v2h-1v2h-1v1H9v1H7v-1H5v-1H4v-2H3V8H2V3z" fill="#ef4444" />
+    <path d="M4 5h2v2H4V5z" fill="#fca5a5" />
+  </svg>
+);
+
+export const PixelHeartEmpty: React.FC<PixelIconProps> = ({ className = 'w-5 h-5' }) => (
+  <svg viewBox="0 0 16 16" fill="none" className={className} style={{ imageRendering: 'pixelated' }}>
+    <path
+      d="M2 3h4v1h4V3h4v5h-1v2h-1v2h-1v1H9v1H7v-1H5v-1H4v-2H3V8H2V3z"
+      fill="currentColor"
+      fillOpacity="0.15"
+      stroke="currentColor"
+      strokeOpacity="0.5"
+    />
+  </svg>
+);
+
+export const PixelCoin: React.FC<PixelIconProps> = ({ className = 'w-5 h-5' }) => (
+  <svg viewBox="0 0 16 16" fill="currentColor" className={className} style={{ imageRendering: 'pixelated' }}>
+    <path d="M5 1h6v1h2v2h1v8h-1v2h-2v1H5v-1H3v-2H2V4h1V2h2V1z" fill="#b45309" />
+    <path d="M5 2h6v1h1v1h1v8h-1v1h-1v1H5v-1H4v-1H3V4h1V3h1V2z" fill="#fbbf24" />
+    <path d="M7 4h2v8H7V4zm-1 1h4v1H6V5zm0 5h4v1H6v-1z" fill="#fef3c7" />
+  </svg>
+);
+
+export const PixelFire: React.FC<PixelIconProps> = ({ className = 'w-5 h-5' }) => (
+  <svg viewBox="0 0 16 16" fill="currentColor" className={className} style={{ imageRendering: 'pixelated' }}>
+    <path d="M8 1h1v2h1v1h1v1h1v2h1v5h-1v1h-2v1H6v-1H4v-1H3V9h1V7h1V5h1V3h1V1h1z" fill="#f97316" />
+    <path d="M8 5h1v2h1v3h-1v2H7v-2H6V8h1V6h1V5z" fill="#fde047" />
+  </svg>
+);
+
+export const PixelMedal: React.FC<PixelIconProps> = ({ className = 'w-5 h-5' }) => (
+  <svg viewBox="0 0 16 16" fill="currentColor" className={className} style={{ imageRendering: 'pixelated' }}>
+    <path d="M4 1h3v5H4V1zm5 0h3v5H9V1z" fill="#3b82f6" />
+    <path d="M5 6h6v1h1v1h1v4h-1v1h-1v1H5v-1H4v-1H3V8h1V7h1V6z" fill="#a16207" />
+    <path d="M6 7h4v1h1v3h-1v1H6v-1H5V8h1V7z" fill="#fbbf24" />
+    <path d="M7 9h2v1H7V9z" fill="#fef3c7" />
+  </svg>
+);
+
+export const PixelLock: React.FC<PixelIconProps> = ({ className = 'w-5 h-5' }) => (
+  <svg viewBox="0 0 16 16" fill="currentColor" className={className} style={{ imageRendering: 'pixelated' }}>
+    <path d="M5 2h6v1h1v4h-2V4H6v3H4V3h1V2z" fill="#94a3b8" />
+    <path d="M3 7h10v7H3V7z" fill="#64748b" />
+    <path d="M7 9h2v3H7V9z" fill="#1e293b" />
+  </svg>
+);
+
+export const PixelClock: React.FC<PixelIconProps> = ({ className = 'w-5 h-5' }) => (
+  <svg viewBox="0 0 16 16" fill="currentColor" className={className} style={{ imageRendering: 'pixelated' }}>
+    <path d="M6 1h4v1H6V1zM5 3h6v1h2v2h1v6h-1v2h-2v1H5v-1H3v-2H2V6h1V4h2V3z" fill="#e2e8f0" />
+    <path d="M6 4h4v1h2v2h1v4h-1v2h-2v1H6v-1H4v-2H3V7h1V5h2V4z" fill="#475569" />
+    <path d="M7 5h2v4H7V5zm2 4h3v2H9V9z" fill="#f8fafc" />
+  </svg>
+);
+
+export const PixelCheck: React.FC<PixelIconProps> = ({ className = 'w-5 h-5' }) => (
+  <svg viewBox="0 0 16 16" fill="currentColor" className={className} style={{ imageRendering: 'pixelated' }}>
+    <path d="M13 3h2v2h-2V3zm-2 2h2v2h-2V5zM9 7h2v2H9V7zM7 9h2v2H7V9zm-2 2h2v2H5v-2zM3 9h2v2H3V9zM1 7h2v2H1V7z" fill="#10b981" />
+  </svg>
+);
+
+export const PixelStar: React.FC<PixelIconProps> = ({ className = 'w-5 h-5' }) => (
+  <svg viewBox="0 0 16 16" fill="currentColor" className={className} style={{ imageRendering: 'pixelated' }}>
+    <path d="M7 1h2v4h4v2h-2v2h1v5H9v-2H7v2H4V9h1V7H3V5h4V1z" fill="#fbbf24" />
+    <path d="M7 5h2v2H7V5z" fill="#fef3c7" />
+  </svg>
+);
+
+export const PixelVideo: React.FC<PixelIconProps> = ({ className = 'w-5 h-5' }) => (
+  <svg viewBox="0 0 16 16" fill="currentColor" className={className} style={{ imageRendering: 'pixelated' }}>
+    <path d="M1 3h10v10H1V3z" fill="#334155" />
+    <path d="M11 6h1V5h1V4h2v8h-2v-1h-1v-1h-1V6z" fill="#64748b" />
+    <path d="M5 6h1v1h1v1h1v1H7v1H6v1H5V6z" fill="#38bdf8" />
+  </svg>
+);
+
+export const PixelAudio: React.FC<PixelIconProps> = ({ className = 'w-5 h-5' }) => (
+  <svg viewBox="0 0 16 16" fill="currentColor" className={className} style={{ imageRendering: 'pixelated' }}>
+    <path d="M1 6h3V5h1V4h1V3h1v10H6v-1H5v-1H4v-1H1V6z" fill="#a78bfa" />
+    <path d="M9 5h1v1h1v4h-1v1H9V5zm3-2h1v1h1v8h-1v1h-1V3z" fill="#7c3aed" />
+  </svg>
+);
+
+export const PixelLink: React.FC<PixelIconProps> = ({ className = 'w-5 h-5' }) => (
+  <svg viewBox="0 0 16 16" fill="currentColor" className={className} style={{ imageRendering: 'pixelated' }}>
+    <path d="M9 2h5v5h-2V5h-1V4H9V2zM2 9h2v2h1v1h2v2H2V9z" fill="#0ea5e9" />
+    <path d="M6 9h1v1H6V9zm1-1h1v1H7V8zm1-1h1v1H8V7zm1-1h1v1H9V6zm1-1h1v1h-1V5z" fill="#38bdf8" />
+  </svg>
+);
+
+export const PixelFolder: React.FC<PixelIconProps> = ({ className = 'w-5 h-5' }) => (
+  <svg viewBox="0 0 16 16" fill="currentColor" className={className} style={{ imageRendering: 'pixelated' }}>
+    <path d="M1 3h5v1h1v1H1V3z" fill="#b45309" />
+    <path d="M1 5h14v9H1V5z" fill="#f59e0b" />
+    <path d="M2 6h12v2H2V6z" fill="#fbbf24" />
+  </svg>
+);
+
+export const PixelPdf: React.FC<PixelIconProps> = ({ className = 'w-5 h-5' }) => (
+  <svg viewBox="0 0 16 16" fill="currentColor" className={className} style={{ imageRendering: 'pixelated' }}>
+    <path d="M3 1h7v3h3v11H3V1z" fill="#f1f5f9" />
+    <path d="M10 1h1v1h1v1h1v1h-3V1z" fill="#94a3b8" />
+    <path d="M4 9h8v4H4V9z" fill="#dc2626" />
+    <path d="M5 10h2v1H5v-1zm3 0h3v1H8v-1zm-3 2h6v1H5v-1z" fill="#fef2f2" />
+  </svg>
+);
+
+export const PixelQuiz: React.FC<PixelIconProps> = ({ className = 'w-5 h-5' }) => (
+  <svg viewBox="0 0 16 16" fill="currentColor" className={className} style={{ imageRendering: 'pixelated' }}>
+    <path d="M2 1h12v14H2V1z" fill="#f8fafc" />
+    <path d="M4 3h3v3H4V3zm0 5h3v3H4V8z" fill="#06b6d4" />
+    <path d="M8 4h4v1H8V4zm0 5h4v1H8V9zm0 3h3v1H8v-1z" fill="#475569" />
+  </svg>
+);

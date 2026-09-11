@@ -8,7 +8,8 @@ export default defineConfig({
   plugins: [
     react(),
     tailwindcss(),
-    dts({ insertTypesEntry: true }),
+    // Only emit types for the library, not the playground.
+    dts({ insertTypesEntry: true, include: ['src'] }),
   ],
   build: {
     cssCodeSplit: false,

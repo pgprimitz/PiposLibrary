@@ -19,7 +19,25 @@ export interface ArcadeNavbarProps {
   onLogout?: () => void;
   /** Muestra u oculta el botón de alternar tema claro/oscuro. */
   showThemeToggle?: boolean;
+  /** Textos de la interfaz. Todos tienen default en español y son sobrescribibles. */
+  labels?: {
+    messages?: string;
+    notifications?: string;
+    toDarkTheme?: string;
+    toLightTheme?: string;
+    editProfile?: string;
+    logout?: string;
+  };
 }
+
+const defaultLabels = {
+  messages: 'Mensajería y Canales',
+  notifications: 'Centro de Notificaciones',
+  toDarkTheme: 'Cambiar a tema oscuro',
+  toLightTheme: 'Cambiar a tema claro',
+  editProfile: 'Editar perfil',
+  logout: 'Cerrar sesión',
+};
 
 export const ArcadeNavbar: React.FC<ArcadeNavbarProps> = ({
   brandName = 'TUP ARCADE',
@@ -32,7 +50,9 @@ export const ArcadeNavbar: React.FC<ArcadeNavbarProps> = ({
   onEditProfile,
   onLogout,
   showThemeToggle = true,
+  labels,
 }) => {
+  const text = { ...defaultLabels, ...labels };
   const [profileOpen, setProfileOpen] = useState(false);
   const menuRef = useRef<HTMLDivElement>(null);
   const { theme, toggleTheme } = useTheme();
@@ -70,7 +90,7 @@ export const ArcadeNavbar: React.FC<ArcadeNavbarProps> = ({
           <button
             type="button"
             onClick={onNavigateMessages}
-            title="Mensajería y Canales"
+            title={text.messages}
             className="relative p-2 rounded border border-surface-2 bg-surface/80 hover:border-brand-2 text-brand-2 transition-all cursor-pointer flex items-center justify-center"
           >
             <PixelChat className="w-5 h-5" />
@@ -85,7 +105,7 @@ export const ArcadeNavbar: React.FC<ArcadeNavbarProps> = ({
           <button
             type="button"
             onClick={onNavigateNotifications}
-            title="Centro de Notificaciones"
+            title={text.notifications}
             className="relative p-2 rounded border border-surface-2 bg-surface/80 hover:border-gold text-gold transition-all cursor-pointer flex items-center justify-center"
           >
             <PixelBell className="w-5 h-5" />
@@ -101,7 +121,7 @@ export const ArcadeNavbar: React.FC<ArcadeNavbarProps> = ({
             <button
               type="button"
               onClick={toggleTheme}
-              title={theme === 'dark' ? 'Cambiar a tema claro' : 'Cambiar a tema oscuro'}
+              title={theme === 'dark' ? text.toLightTheme : text.toDarkTheme}
               className="p-2 rounded border border-surface-2 bg-surface/80 hover:border-gold text-gold transition-all cursor-pointer flex items-center justify-center"
             >
               {theme === 'dark' ? <Sun className="w-4 h-4" /> : <Moon className="w-4 h-4" />}
@@ -143,7 +163,7 @@ export const ArcadeNavbar: React.FC<ArcadeNavbarProps> = ({
                   className="w-full flex items-center gap-2.5 px-3 py-2 text-left text-ink-soft hover:bg-brand-2/60 hover:text-brand-2 transition-colors cursor-pointer"
                 >
                   <Settings className="w-4 h-4 text-brand-2" />
-                  <span>Editar perfil</span>
+                  <span>{text.editProfile}</span>
                 </button>
 
                 <div className="my-1 border-t border-surface-2" />
@@ -157,7 +177,7 @@ export const ArcadeNavbar: React.FC<ArcadeNavbarProps> = ({
                   className="w-full flex items-center gap-2.5 px-3 py-2 text-left text-danger hover:bg-danger/40 hover:text-danger transition-colors cursor-pointer"
                 >
                   <LogOut className="w-4 h-4" />
-                  <span>Cerrar sesión</span>
+                  <span>{text.logout}</span>
                 </button>
               </div>
             )}
