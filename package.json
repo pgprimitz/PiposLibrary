@@ -26,6 +26,7 @@
     "dev": "vite",
     "build:watch": "vite build --watch",
     "build": "vite build",
+    "build:site": "vite build --config vite.config.site.ts",
     "typecheck": "tsc --noEmit"
   },
   "peerDependencies": {
