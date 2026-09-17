@@ -37,3 +37,6 @@ export * from './lib/avatar/avatar';
 export * from './lib/empty-state/empty-state';
 export * from './lib/callout/callout';
 export * from './lib/math-block/math-block';
+export * from './lib/tabs/tabs';
+export * from './lib/tabs/tabs.models';
+export * from './lib/tooltip/tooltip';

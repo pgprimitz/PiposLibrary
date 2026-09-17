@@ -1,0 +1,21 @@
+<div class="tablist" role="tablist" (keydown)="onKeydown($event)">
+  @for (tab of tabs(); track tab.id) {
+    <button
+      type="button"
+      class="tab"
+      [class.active]="tab.id === activeId()"
+      [class.disabled]="tab.disabled"
+      [attr.data-tab-id]="tab.id"
+      role="tab"
+      [attr.aria-selected]="tab.id === activeId()"
+      [attr.aria-disabled]="tab.disabled ? true : null"
+      [tabindex]="tab.id === activeId() ? 0 : -1"
+      (click)="select(tab)"
+    >
+      @if (tab.icon) {
+        <generic-icon [name]="tab.icon" [size]="16" />
+      }
+      {{ tab.label }}
+    </button>
+  }
+</div>
