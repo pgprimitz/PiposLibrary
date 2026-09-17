@@ -32,10 +32,10 @@ export class GenericNavbar {
 
   readonly mobileMenuOpen = signal(false);
 
-  readonly theme = this.themeService.theme;
+  readonly isDarkMode = computed(() => this.themeService.theme() === 'dark');
 
   readonly themeIconLabel = computed(() =>
-    this.themeService.theme() === 'dark' ? 'Cambiar a tema claro' : 'Cambiar a tema oscuro',
+    this.isDarkMode() ? 'Cambiar a tema claro' : 'Cambiar a tema oscuro',
   );
 
   toggleMobileMenu(): void {

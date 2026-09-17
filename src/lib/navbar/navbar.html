@@ -25,7 +25,7 @@
         [attr.aria-label]="themeIconLabel()"
         (click)="toggleTheme()"
       >
-        <span class="theme-icon" [class.mode-dark]="theme() === 'dark'" [class.mode-light]="theme() === 'light'"></span>
+        <span class="theme-icon" [class.mode-dark]="isDarkMode()" [class.mode-light]="!isDarkMode()"></span>
       </button>
 
       <button
