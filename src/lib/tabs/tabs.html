@@ -1,6 +1,7 @@
 <div class="tablist" role="tablist" (keydown)="onKeydown($event)">
   @for (tab of tabs(); track tab.id) {
     <button
+      #tabButton
       type="button"
       class="tab"
       [class.active]="tab.id === activeId()"
@@ -9,7 +10,7 @@
       role="tab"
       [attr.aria-selected]="tab.id === activeId()"
       [attr.aria-disabled]="tab.disabled ? true : null"
-      [tabindex]="tab.id === activeId() ? 0 : -1"
+      [tabindex]="tab.id === focusableTabId() ? 0 : -1"
       (click)="select(tab)"
     >
       @if (tab.icon) {
