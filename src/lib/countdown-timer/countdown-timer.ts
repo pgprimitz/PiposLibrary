@@ -56,7 +56,12 @@ export class GenericCountdownTimer {
       this.started = true;
       this.remaining.set(this.durationSeconds());
       if (this.autoStart()) {
-        this.start();
+        if (this.remaining() <= 0) {
+          this.expiredEmitted.set(true);
+          this.expired.emit();
+        } else {
+          this.start();
+        }
       }
     });
 
@@ -85,6 +90,7 @@ export class GenericCountdownTimer {
         }
         if (this.intervalId !== undefined) {
           clearInterval(this.intervalId);
+          this.intervalId = undefined;
         }
         return;
       }

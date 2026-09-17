@@ -14,6 +14,7 @@ import { GenericIcon } from '../icon/icon';
     '[attr.aria-valuemin]': '0',
     '[attr.aria-valuemax]': 'max()',
     '[attr.aria-valuenow]': 'value()',
+    '[attr.aria-label]': 'label() || null',
     '(keydown)': 'onKeydown($event)',
     '(mouseleave)': 'onLeave()',
   },
@@ -23,6 +24,7 @@ export class GenericStarRating {
   readonly max = input(5);
   readonly readonly = input(false);
   readonly size = input<ArcadeSize>('md');
+  readonly label = input('');
 
   protected readonly hovered = signal<number | null>(null);
 
