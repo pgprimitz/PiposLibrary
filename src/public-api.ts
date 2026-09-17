@@ -40,3 +40,4 @@ export * from './lib/math-block/math-block';
 export * from './lib/tabs/tabs';
 export * from './lib/tabs/tabs.models';
 export * from './lib/tooltip/tooltip';
+export * from './lib/drawer/drawer';

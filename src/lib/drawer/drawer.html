@@ -1,0 +1,20 @@
+@if (open()) {
+  <div class="overlay" role="presentation">
+    <div class="backdrop" (click)="onBackdrop()" aria-hidden="true"></div>
+    <div
+      class="panel side-{{ side() }} size-{{ size() }}"
+      role="dialog"
+      aria-modal="true"
+      tabindex="-1"
+      (click)="$event.stopPropagation()"
+    >
+      @if (dismissable()) {
+        <button type="button" class="x" [attr.aria-label]="closeLabel()" (click)="close()">×</button>
+      }
+
+      <div class="body">
+        <ng-content />
+      </div>
+    </div>
+  </div>
+}
