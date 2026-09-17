@@ -1,6 +1,7 @@
 import { ChangeDetectionStrategy, Component, computed, input } from '@angular/core';
+import { ArcadeTone } from '../types';
 
-export type GenericAvatarRing = 'cyan' | 'magenta' | 'gold' | 'green' | 'red' | 'none';
+export type GenericAvatarRing = ArcadeTone | 'none';
 
 @Component({
   selector: 'generic-avatar',

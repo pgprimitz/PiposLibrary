@@ -3,7 +3,7 @@
 }
 
 .math {
-  font-family: 'Courier New', monospace;
+  font-family: var(--font-retro);
   color: var(--text-primary);
 }
 

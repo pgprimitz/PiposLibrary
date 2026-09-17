@@ -1,25 +1,24 @@
 # generic-callout
 
-Recuadro destacado para notas, advertencias, tips o citas, con contenido proyectado.
+Recuadro destacado con ícono para notas, advertencias, éxitos o errores, con contenido proyectado.
 
 ## Inputs
 
 | Nombre | Tipo | Default |
 | --- | --- | --- |
-| `variant` | `note \| warning \| tip \| citation` | `note` |
-| `title` | `string \| undefined` | `undefined` (usa el título por defecto de la variante) |
-| `source` | `string \| undefined` | `undefined` (solo aplica a `citation`) |
+| `tone` | `cyan \| gold \| green \| red \| neutral` | `cyan` |
+| `title` | `string \| undefined` | `undefined` (usa el título por defecto del tono) |
 
-Si no se define `title`, se usa un título por defecto según `variant`: Nota, Advertencia, Tip o Cita. En la variante `citation`, el contenido proyectado se muestra en cursiva y, si hay `source`, se agrega `— {source}` debajo.
+Si no se define `title`, se usa un título por defecto según `tone`: Nota (cyan), Advertencia (gold), Éxito (green), Error (red) o Info (neutral). Cada tono muestra un ícono acorde (`generic-icon`).
 
 ## Uso
 
 ```html
-<generic-callout variant="warning">
+<generic-callout tone="gold">
   Este endpoint va a dejar de funcionar en la próxima versión.
 </generic-callout>
 
-<generic-callout variant="citation" source="Robert C. Martin">
-  El código limpio siempre parece que fue escrito por alguien a quien le importa.
+<generic-callout tone="red" title="Error de validación">
+  El campo email es obligatorio.
 </generic-callout>
 ```

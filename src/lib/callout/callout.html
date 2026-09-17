@@ -1,9 +1,9 @@
-<div class="callout variant-{{ variant() }}">
-  <p class="title">{{ resolvedTitle() }}</p>
-  <div class="body" [class.citation]="variant() === 'citation'">
+<div class="callout tone-{{ tone() }}">
+  <div class="header">
+    <generic-icon class="icon" [name]="icon()" [size]="18" />
+    <p class="title">{{ resolvedTitle() }}</p>
+  </div>
+  <div class="body">
     <ng-content />
   </div>
-  @if (variant() === 'citation' && source()) {
-    <p class="source">— {{ source() }}</p>
-  }
 </div>
