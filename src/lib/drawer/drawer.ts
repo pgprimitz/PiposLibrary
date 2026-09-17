@@ -19,6 +19,7 @@ export class GenericDrawer {
   readonly closed = output<void>();
 
   close(): void {
+    if (!this.open()) return;
     if (!this.dismissable()) return;
     this.open.set(false);
     this.closed.emit();

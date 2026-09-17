@@ -25,6 +25,24 @@ Panel lateral deslizable (slide-in) anclado a un borde de la pantalla. Sigue el 
 - `size` controla el ancho (en `left`/`right`) o el alto (en `top`/`bottom`) del panel: `sm` = 280px / 160px, `md` = 360px / 240px, `lg` = 480px / 320px.
 - El contenido del cuerpo se proyecta vía `<ng-content />`.
 
+## Accesibilidad
+
+`generic-drawer` no tiene un input `title` (a diferencia de `generic-modal`), ya que se piensa como un panel de contenido simple. Esto significa que el `role="dialog"` no tiene nombre accesible por defecto. Para que los lectores de pantalla anuncien el drawer correctamente, quien lo consuma debe proveer `aria-labelledby` apuntando a un encabezado propio dentro del contenido proyectado, o `aria-label` directamente sobre el host `<generic-drawer>`:
+
+```html
+<generic-drawer aria-label="Filtros">
+  <h2>Filtros</h2>
+  ...
+</generic-drawer>
+```
+
+```html
+<generic-drawer aria-labelledby="drawer-titulo">
+  <h2 id="drawer-titulo">Filtros</h2>
+  ...
+</generic-drawer>
+```
+
 ## Uso
 
 ```html
