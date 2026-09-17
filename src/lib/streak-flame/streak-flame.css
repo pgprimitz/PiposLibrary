@@ -1,0 +1,23 @@
+:host {
+  display: inline-flex;
+}
+
+.wrap {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  font-family: var(--font-arcade);
+  font-weight: 700;
+  font-size: 1rem;
+  color: var(--accent-danger);
+}
+
+.days {
+  color: var(--text-primary);
+}
+
+:host.inactive .wrap {
+  color: var(--text-muted);
+  filter: grayscale(1);
+  opacity: 0.6;
+}

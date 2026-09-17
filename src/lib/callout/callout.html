@@ -1,0 +1,9 @@
+<div class="callout tone-{{ tone() }}">
+  <div class="header">
+    <generic-icon class="icon" [name]="icon()" [size]="18" />
+    <p class="title">{{ resolvedTitle() }}</p>
+  </div>
+  <div class="body">
+    <ng-content />
+  </div>
+</div>

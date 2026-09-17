@@ -1,0 +1,65 @@
+:host {
+  display: block;
+}
+
+.header {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  padding: 1.25rem 1.5rem;
+  border-radius: 4px;
+  border: 2px solid;
+}
+
+.badge {
+  align-self: flex-start;
+}
+
+.title {
+  margin: 0;
+  font-family: var(--font-arcade);
+  font-weight: 700;
+  font-size: 1.5rem;
+  color: var(--text-primary);
+}
+
+.subtitle {
+  margin: 0;
+  font-family: var(--font-arcade);
+  font-size: 0.95rem;
+  color: var(--text-muted);
+}
+
+.progress {
+  margin-top: 0.5rem;
+}
+
+.tone-cyan {
+  border-color: var(--accent-secondary);
+  background: color-mix(in srgb, var(--accent-secondary) 12%, transparent);
+}
+
+.tone-magenta {
+  border-color: var(--accent-primary);
+  background: color-mix(in srgb, var(--accent-primary) 12%, transparent);
+}
+
+.tone-gold {
+  border-color: var(--accent-gold);
+  background: color-mix(in srgb, var(--accent-gold) 12%, transparent);
+}
+
+.tone-green {
+  border-color: var(--accent-success);
+  background: color-mix(in srgb, var(--accent-success) 12%, transparent);
+}
+
+.tone-red {
+  border-color: var(--accent-danger);
+  background: color-mix(in srgb, var(--accent-danger) 12%, transparent);
+}
+
+.tone-neutral {
+  border-color: var(--border-subtle);
+  background: color-mix(in srgb, var(--bg-surface-alt) 40%, transparent);
+}

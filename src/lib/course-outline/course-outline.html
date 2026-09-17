@@ -1,0 +1,44 @@
+<ul class="modules">
+  @for (module of modules(); track module.id) {
+    <li class="module">
+      <button
+        type="button"
+        class="header"
+        [attr.aria-expanded]="isExpanded(module)"
+        [attr.aria-controls]="module.id + '-lessons'"
+        (click)="toggleModule(module)"
+      >
+        <span class="chevron" [class.open]="isExpanded(module)" aria-hidden="true"></span>
+        <span class="label">{{ module.label }}</span>
+      </button>
+
+      @if (isExpanded(module)) {
+        <ul class="lessons" [id]="module.id + '-lessons'">
+          @for (lesson of module.lessons; track lesson.id) {
+            <li>
+              <button
+                type="button"
+                class="lesson"
+                [class.active]="activeLessonId() === lesson.id"
+                [class.locked]="lesson.locked"
+                [disabled]="lesson.locked"
+                [attr.aria-disabled]="lesson.locked ? 'true' : null"
+                [attr.aria-current]="activeLessonId() === lesson.id ? 'true' : null"
+                (click)="onLessonClick(module, lesson)"
+              >
+                @if (lesson.completed) {
+                  <generic-icon name="check" [size]="14" class="status" />
+                } @else if (lesson.locked) {
+                  <generic-icon name="lock" [size]="14" class="status" />
+                } @else {
+                  <span class="status dot" aria-hidden="true"></span>
+                }
+                <span class="label">{{ lesson.label }}</span>
+              </button>
+            </li>
+          }
+        </ul>
+      }
+    </li>
+  }
+</ul>

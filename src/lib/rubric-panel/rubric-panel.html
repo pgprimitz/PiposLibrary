@@ -1,0 +1,32 @@
+<div class="panel">
+  @for (criterion of criteria(); track criterion.id) {
+    <section class="criterion" [attr.aria-label]="criterion.label">
+      <h3 class="criterion-label">{{ criterion.label }}</h3>
+
+      <div class="levels" role="radiogroup" [attr.aria-label]="criterion.label + ' - niveles'">
+        @for (level of criterion.levels; track $index) {
+          <button
+            type="button"
+            role="radio"
+            class="level"
+            [class.selected]="isSelected(criterion, $index)"
+            [class.static]="readonly()"
+            [attr.aria-checked]="isSelected(criterion, $index)"
+            (click)="onLevelClick(criterion, $index)"
+          >
+            <span class="level-label">{{ level.label }}</span>
+            <span class="level-points">{{ level.points }} pts</span>
+            @if (level.description) {
+              <span class="level-desc">{{ level.description }}</span>
+            }
+          </button>
+        }
+      </div>
+    </section>
+  }
+
+  <div class="total">
+    <span class="total-label">Total</span>
+    <span class="total-points">{{ totalPoints() }} pts</span>
+  </div>
+</div>

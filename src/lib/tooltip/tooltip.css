@@ -1,0 +1,97 @@
+:host {
+  display: inline-block;
+  position: relative;
+}
+
+.bubble {
+  position: absolute;
+  z-index: 10;
+  display: inline-block;
+  width: max-content;
+  max-width: 16rem;
+  padding: 0.35rem 0.6rem;
+  background: var(--bg-surface-alt);
+  border: 1px solid var(--border-subtle);
+  border-radius: 2px;
+  color: var(--text-primary);
+  font-family: var(--font-arcade);
+  font-size: 0.8rem;
+  font-weight: 500;
+  line-height: 1.3;
+  pointer-events: none;
+  animation: generic-tooltip-fade 0.12s ease;
+}
+
+.bubble::after {
+  content: '';
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  background: var(--bg-surface-alt);
+  border: 1px solid var(--border-subtle);
+}
+
+.pos-top {
+  bottom: calc(100% + 8px);
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.pos-top::after {
+  top: 100%;
+  left: 50%;
+  border-top: none;
+  border-left: none;
+  transform: translate(-50%, -50%) rotate(45deg);
+}
+
+.pos-bottom {
+  top: calc(100% + 8px);
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.pos-bottom::after {
+  bottom: 100%;
+  left: 50%;
+  border-bottom: none;
+  border-right: none;
+  transform: translate(-50%, 50%) rotate(45deg);
+}
+
+.pos-left {
+  right: calc(100% + 8px);
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.pos-left::after {
+  left: 100%;
+  top: 50%;
+  border-left: none;
+  border-bottom: none;
+  transform: translate(-50%, -50%) rotate(45deg);
+}
+
+.pos-right {
+  left: calc(100% + 8px);
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.pos-right::after {
+  right: 100%;
+  top: 50%;
+  border-right: none;
+  border-top: none;
+  transform: translate(50%, -50%) rotate(45deg);
+}
+
+@keyframes generic-tooltip-fade {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}

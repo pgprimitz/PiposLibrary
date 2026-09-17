@@ -1,0 +1,14 @@
+<div class="grid">
+  @for (badge of badges(); track badge.id) {
+    <button
+      type="button"
+      class="tile"
+      [class.earned]="badge.earned"
+      [attr.aria-label]="ariaLabelFor(badge)"
+      (click)="onClick(badge)"
+    >
+      <generic-icon [name]="badge.iconName" [size]="28" />
+      <span class="label">{{ badge.label }}</span>
+    </button>
+  }
+</div>

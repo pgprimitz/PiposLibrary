@@ -1,0 +1,44 @@
+<nav class="breadcrumb" aria-label="Breadcrumb">
+  <ol>
+    @if (showHome()) {
+      <li>
+        <button type="button" class="crumb link" (click)="selectHome()">
+          <span class="home-icon" aria-hidden="true"></span>
+          <span>Home</span>
+        </button>
+      </li>
+      @if (items().length > 0) {
+        <li aria-hidden="true"><span class="separator"></span></li>
+      }
+    }
+    @for (item of items(); track item.id; let i = $index; let last = $last) {
+      <li>
+        @if (last) {
+          <span class="crumb current" aria-current="page">
+            @if (item.icon) {
+              <generic-icon [name]="item.icon" [size]="14" />
+            }
+            {{ item.label }}
+          </span>
+        } @else if (item.href) {
+          <a class="crumb link" [href]="item.href" (click)="select(item, i)">
+            @if (item.icon) {
+              <generic-icon [name]="item.icon" [size]="14" />
+            }
+            {{ item.label }}
+          </a>
+        } @else {
+          <button type="button" class="crumb link" (click)="select(item, i)">
+            @if (item.icon) {
+              <generic-icon [name]="item.icon" [size]="14" />
+            }
+            {{ item.label }}
+          </button>
+        }
+      </li>
+      @if (!last) {
+        <li aria-hidden="true"><span class="separator"></span></li>
+      }
+    }
+  </ol>
+</nav>

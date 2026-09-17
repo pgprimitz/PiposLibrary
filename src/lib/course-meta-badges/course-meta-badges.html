@@ -1,0 +1,11 @@
+<div class="course-meta-badges">
+  @if (difficulty()) {
+    <generic-badge [tone]="difficultyTone()!" [size]="size()">{{ difficultyLabel() }}</generic-badge>
+  }
+  @if (durationLabel()) {
+    <generic-badge tone="neutral" [size]="size()">{{ durationLabel() }}</generic-badge>
+  }
+  @if (status()) {
+    <generic-course-status-badge [status]="status()!" [size]="size()" />
+  }
+</div>

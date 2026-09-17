@@ -1,0 +1,10 @@
+<header class="header tone-{{ tone() }}">
+  @if (badgeLabel()) {
+    <generic-badge [tone]="tone()" size="sm" class="badge">{{ badgeLabel() }}</generic-badge>
+  }
+  <h1 class="title">{{ title() }}</h1>
+  @if (subtitle()) {
+    <p class="subtitle">{{ subtitle() }}</p>
+  }
+  <generic-progress class="progress" [value]="progress()" [tone]="progressTone()" size="sm" />
+</header>

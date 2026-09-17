@@ -1,0 +1,10 @@
+<span class="avatar size-{{ size() }} ring-{{ ring() }}">
+  @if (src()) {
+    <img class="img" [src]="src()" [alt]="name()" />
+  } @else {
+    <span class="initials" [attr.aria-label]="name()">{{ initials() }}</span>
+  }
+  @if (level() !== undefined) {
+    <span class="level">{{ level() }}</span>
+  }
+</span>

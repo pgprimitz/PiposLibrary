@@ -1,0 +1,22 @@
+<div class="wrap">
+  @if (language() || filename() || showCopyButton()) {
+    <div class="header">
+      <span class="label">
+        @if (filename()) {
+          {{ filename() }}
+        } @else if (language()) {
+          {{ language() }}
+        }
+      </span>
+      @if (showCopyButton()) {
+        <button type="button" class="copy-btn" (click)="copy()" [attr.aria-label]="justCopied() ? 'Copiado' : 'Copiar código'">
+          @if (justCopied()) {
+            <generic-icon name="check" [size]="14" />
+          }
+          <span>{{ justCopied() ? 'Copiado' : 'Copiar' }}</span>
+        </button>
+      }
+    </div>
+  }
+  <pre class="code"><code>{{ code() }}</code></pre>
+</div>

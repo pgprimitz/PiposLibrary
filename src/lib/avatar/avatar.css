@@ -1,0 +1,66 @@
+:host {
+  display: inline-flex;
+}
+
+.avatar {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  border-radius: 50%;
+  background: var(--bg-surface-alt);
+  border: 2px solid var(--border-subtle);
+  overflow: visible;
+}
+
+.img {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.initials {
+  font-family: var(--font-arcade);
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.size-xs { width: 24px; height: 24px; }
+.size-xs .initials { font-size: 0.6rem; }
+.size-sm { width: 32px; height: 32px; }
+.size-sm .initials { font-size: 0.7rem; }
+.size-md { width: 44px; height: 44px; }
+.size-md .initials { font-size: 0.9rem; }
+.size-lg { width: 60px; height: 60px; }
+.size-lg .initials { font-size: 1.15rem; }
+.size-xl { width: 80px; height: 80px; }
+.size-xl .initials { font-size: 1.5rem; }
+
+.ring-cyan { border-color: var(--accent-secondary); box-shadow: 0 0 0 2px color-mix(in srgb, var(--accent-secondary) 35%, transparent); }
+.ring-magenta { border-color: var(--accent-primary); box-shadow: 0 0 0 2px color-mix(in srgb, var(--accent-primary) 35%, transparent); }
+.ring-gold { border-color: var(--accent-gold); box-shadow: 0 0 0 2px color-mix(in srgb, var(--accent-gold) 35%, transparent); }
+.ring-green { border-color: var(--accent-success); box-shadow: 0 0 0 2px color-mix(in srgb, var(--accent-success) 35%, transparent); }
+.ring-red { border-color: var(--accent-danger); box-shadow: 0 0 0 2px color-mix(in srgb, var(--accent-danger) 35%, transparent); }
+.ring-neutral { border-color: var(--border-subtle); box-shadow: 0 0 0 2px color-mix(in srgb, var(--border-subtle) 35%, transparent); }
+.ring-none { border-color: transparent; box-shadow: none; }
+
+.level {
+  position: absolute;
+  right: -4px;
+  bottom: -4px;
+  min-width: 16px;
+  height: 16px;
+  padding: 0 3px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: var(--accent-gold-fill);
+  color: #1a1408;
+  font-family: var(--font-arcade);
+  font-size: 0.6rem;
+  font-weight: 700;
+  border: 2px solid var(--bg-surface);
+}

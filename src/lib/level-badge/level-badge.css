@@ -1,0 +1,35 @@
+:host {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  border-radius: 50%;
+  border: 2px solid;
+  font-family: var(--font-arcade);
+  font-weight: 700;
+  line-height: 1;
+  text-align: center;
+}
+
+:host.size-sm { width: 2rem; height: 2rem; }
+:host.size-md { width: 2.75rem; height: 2.75rem; }
+:host.size-lg { width: 3.5rem; height: 3.5rem; }
+
+.prefix {
+  font-size: 0.55em;
+  letter-spacing: 0;
+  opacity: 0.85;
+}
+
+.number {
+  font-size: 0.95em;
+}
+
+:host.size-sm .prefix { font-size: 0.5em; }
+
+:host.tone-cyan { color: var(--accent-secondary); border-color: var(--accent-secondary); background: color-mix(in srgb, var(--accent-secondary) 12%, transparent); }
+:host.tone-magenta { color: var(--accent-primary); border-color: var(--accent-primary); background: color-mix(in srgb, var(--accent-primary) 12%, transparent); }
+:host.tone-gold { color: var(--accent-gold); border-color: var(--accent-gold); background: color-mix(in srgb, var(--accent-gold) 12%, transparent); }
+:host.tone-green { color: var(--accent-success); border-color: var(--accent-success); background: color-mix(in srgb, var(--accent-success) 12%, transparent); }
+:host.tone-red { color: var(--accent-danger); border-color: var(--accent-danger); background: color-mix(in srgb, var(--accent-danger) 12%, transparent); }
+:host.tone-neutral { color: var(--text-primary); border-color: var(--border-subtle); background: color-mix(in srgb, var(--bg-surface-alt) 40%, transparent); }

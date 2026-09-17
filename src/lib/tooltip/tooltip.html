@@ -1,0 +1,7 @@
+<ng-content />
+
+@if (visible() && !disabled()) {
+  <span class="bubble pos-{{ position() }}" role="tooltip" [id]="tooltipId">
+    {{ text() }}
+  </span>
+}

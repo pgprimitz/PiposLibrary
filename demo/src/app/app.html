@@ -152,4 +152,156 @@
     <generic-title [level]="2" tone="gold">Encuesta</generic-title>
     <generic-survey title="Feedback de la unidad" [questions]="questions" [(value)]="answers" (submitted)="note('Encuesta enviada')" />
   </section>
+
+  <section>
+    <generic-title [level]="2" tone="gold">Formularios (nuevos)</generic-title>
+    <div class="grid-2">
+      <generic-textarea
+        label="Biografía"
+        placeholder="Contá algo sobre vos"
+        [rows]="4"
+        [showCount]="true"
+        [maxLength]="140"
+        [(value)]="bio"
+      />
+      <generic-radio-group
+        name="lenguaje"
+        label="Lenguaje favorito"
+        [options]="languageOptions"
+        [(value)]="favLanguage"
+      />
+    </div>
+  </section>
+
+  <section>
+    <generic-title [level]="2" tone="gold">Navegación (nuevos)</generic-title>
+    <generic-navbar brandLabel="generic-ui" [items]="navItems" [activeId]="navActiveId()" (itemClick)="navActiveId.set($event.id); note('Nav: ' + $event.label)" />
+    <generic-breadcrumb [items]="breadcrumbItems" [showHome]="true" (itemClick)="note('Breadcrumb: ' + $event.label)" (homeClick)="note('Breadcrumb: Inicio')" />
+    <generic-tabs [tabs]="tabs" [(activeId)]="activeTab" (tabChange)="onTabChange($event)" />
+    <generic-text size="sm" [muted]="true">Tab activo: {{ activeTab() }}</generic-text>
+    <div class="row">
+      <generic-tooltip text="Abre el panel lateral" position="top">
+        <generic-button variant="cyan" (click)="drawerOpen.set(true)">Abrir drawer</generic-button>
+      </generic-tooltip>
+      <generic-tooltip text="Esto es un tooltip de ayuda" position="right">
+        <generic-badge tone="gold">Pasá el mouse</generic-badge>
+      </generic-tooltip>
+    </div>
+    <generic-drawer [(open)]="drawerOpen" side="right" size="md" (closed)="note('Drawer cerrado')">
+      <generic-title [level]="3">Notificaciones</generic-title>
+      <generic-text size="sm">Tenés 3 entregas pendientes esta semana.</generic-text>
+    </generic-drawer>
+  </section>
+
+  <section>
+    <generic-title [level]="2" tone="gold">Contenido y feedback (nuevos)</generic-title>
+    <div class="row">
+      <generic-avatar name="Tamara Ruiz" [level]="12" ring="gold" />
+      <generic-avatar name="Bruno Paz" ring="cyan" size="lg" />
+      <generic-avatar name="Lucía Gómez" ring="none" size="sm" />
+    </div>
+    <div class="grid-2">
+      <generic-callout tone="cyan">Los ejercicios de la unidad 3 ya están disponibles.</generic-callout>
+      <generic-callout tone="gold" title="Ojo">La entrega cierra el viernes a las 23:59.</generic-callout>
+      <generic-callout tone="green">¡Aprobaste el parcial!</generic-callout>
+      <generic-callout tone="red">Tu entrega tiene errores de compilación.</generic-callout>
+    </div>
+    <generic-math-block expression="O(n \log n)" display="inline" />
+    <generic-code-block
+      [code]="codeSnippet"
+      language="typescript"
+      filename="xp.utils.ts"
+      (copied)="note('Código copiado')"
+    />
+    <generic-empty-state title="Sin entregas todavía" description="Cuando subas tu primer archivo, va a aparecer acá.">
+      <generic-icon icon name="folder" [size]="32" />
+      <generic-button action variant="cyan" size="sm" (click)="note('Subir entrega')">Subir entrega</generic-button>
+    </generic-empty-state>
+    <generic-footer [links]="footerLinks" copyrightText="© 2026 generic-ui" (linkClick)="note('Footer: ' + $event.label)">
+      <generic-text brand size="sm">generic-ui · monolito de 12 grupos</generic-text>
+    </generic-footer>
+  </section>
+
+  <section>
+    <generic-title [level]="2" tone="gold">Curso y lecciones (nuevos)</generic-title>
+    <generic-lesson-header
+      title="Signals y reactividad"
+      subtitle="Unidad 2 · Progra IV"
+      [progress]="65"
+      tone="cyan"
+      badgeLabel="En curso"
+    />
+    <div class="grid-2">
+      <generic-course-outline
+        [modules]="outlineModules"
+        [activeLessonId]="activeLessonId()"
+        (lessonClick)="onLessonClick($event)"
+      />
+      <div class="row">
+        <generic-rubric-panel
+          [criteria]="rubricCriteria()"
+          [readonly]="false"
+          (levelSelect)="onRubricLevelSelect($event)"
+        />
+      </div>
+    </div>
+    <generic-multiple-choice
+      question="¿Cuál es la complejidad de una búsqueda binaria?"
+      [options]="mcOptions"
+      [(value)]="mcValue"
+      [showResult]="mcValue() !== null"
+      correctOptionId="b"
+    />
+    <div class="row">
+      <generic-star-rating [(value)]="starValue" [max]="5" label="Calificá la clase" />
+      <generic-countdown-timer
+        [durationSeconds]="60"
+        [autoStart]="true"
+        [(paused)]="countdownPaused"
+        (expired)="note('¡Tiempo agotado!')"
+      />
+      <generic-button variant="ghost" size="sm" (click)="countdownPaused.set(!countdownPaused())">
+        {{ countdownPaused() ? 'Reanudar' : 'Pausar' }}
+      </generic-button>
+    </div>
+  </section>
+
+  <section>
+    <generic-title [level]="2" tone="gold">Estados e insignias (nuevos)</generic-title>
+    <div class="row">
+      @for (status of activityStatuses; track status) {
+        <generic-activity-status-badge [status]="status" />
+      }
+    </div>
+    <div class="row">
+      @for (kind of activityKinds; track kind) {
+        <generic-activity-kind-badge [kind]="kind" />
+      }
+    </div>
+    <div class="row">
+      @for (status of courseStatuses; track status) {
+        <generic-course-status-badge [status]="status" />
+      }
+    </div>
+    <div class="row">
+      @for (score of gradeScores; track score) {
+        <generic-grade-badge [score]="score" />
+      }
+    </div>
+    <generic-course-meta-badges [difficulty]="metaDifficulty" durationLabel="12h" status="published" />
+  </section>
+
+  <section>
+    <generic-title [level]="2" tone="gold">Gamificación (nuevos)</generic-title>
+    <div class="grid-2">
+      <generic-xp-bar [currentXp]="820" [levelXp]="1000" [level]="7" tone="gold" />
+      <div class="row">
+        <generic-coin-counter [count]="450" />
+        <generic-streak-flame [days]="14" [active]="true" />
+        <generic-streak-flame [days]="0" [active]="false" />
+        <generic-level-badge [level]="7" tone="cyan" />
+      </div>
+    </div>
+    <generic-badge-showcase [badges]="achievementBadges" (badgeClick)="note('Insignia: ' + $event.label)" />
+  </section>
 </div>

@@ -1,0 +1,5 @@
+@if (display() === 'inline') {
+  <span class="math math-inline">{{ expression() }}</span>
+} @else {
+  <div class="math math-block">{{ expression() }}</div>
+}
