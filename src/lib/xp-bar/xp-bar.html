@@ -1,4 +1,4 @@
-<div class="wrap">
+<div class="wrap" [attr.aria-label]="ariaLabel()">
   @if (level() !== null) {
     <span class="level-tag">Nivel {{ level() }}</span>
   }
@@ -7,7 +7,7 @@
     [value]="currentXp()"
     [max]="levelXp()"
     [tone]="tone()"
-    [label]="ariaLabel()"
+    [label]="caption()"
     [showValue]="true"
   />
 </div>

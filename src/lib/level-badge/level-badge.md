@@ -1,6 +1,6 @@
 # generic-level-badge
 
-Badge compacto y circular para mostrar un nivel numérico, con prefijo "Lvl". Se implementó con marcado propio (no reutiliza `<generic-badge>`) porque la forma circular distintiva no se logra limpiamente encima del badge rectangular existente sin CSS que peleara contra su forma base.
+Badge compacto y circular para mostrar un nivel numérico, con prefijo "Nivel". Se implementó con marcado propio (no reutiliza `<generic-badge>`) porque la forma circular distintiva no se logra limpiamente encima del badge rectangular existente sin CSS que peleara contra su forma base.
 
 ## Inputs
 

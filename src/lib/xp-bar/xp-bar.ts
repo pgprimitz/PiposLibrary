@@ -14,6 +14,7 @@ export class GenericXpBar {
   readonly levelXp = input.required<number>();
   readonly level = input<number | null>(null);
   readonly tone = input<Exclude<ArcadeTone, 'neutral'>>('gold');
+  readonly caption = input('XP');
 
   readonly ariaLabel = computed(() => `Experiencia: ${this.currentXp()} de ${this.levelXp()}`);
 }
