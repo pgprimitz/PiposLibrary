@@ -20,6 +20,13 @@
             }
             {{ item.label }}
           </span>
+        } @else if (item.href) {
+          <a class="crumb link" [href]="item.href" (click)="select(item, i)">
+            @if (item.icon) {
+              <generic-icon [name]="item.icon" [size]="14" />
+            }
+            {{ item.label }}
+          </a>
         } @else {
           <button type="button" class="crumb link" (click)="select(item, i)">
             @if (item.icon) {

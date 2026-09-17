@@ -4,17 +4,31 @@
 
     <nav class="nav-links" aria-label="Main">
       @for (item of items(); track item.id) {
-        <button
-          type="button"
-          class="nav-item"
-          [class.active]="item.id === activeId()"
-          (click)="select(item)"
-        >
-          @if (item.icon) {
-            <generic-icon [name]="item.icon" [size]="16" />
-          }
-          {{ item.label }}
-        </button>
+        @if (item.href) {
+          <a
+            class="nav-item"
+            [class.active]="item.id === activeId()"
+            [href]="item.href"
+            (click)="select(item)"
+          >
+            @if (item.icon) {
+              <generic-icon [name]="item.icon" [size]="16" />
+            }
+            {{ item.label }}
+          </a>
+        } @else {
+          <button
+            type="button"
+            class="nav-item"
+            [class.active]="item.id === activeId()"
+            (click)="select(item)"
+          >
+            @if (item.icon) {
+              <generic-icon [name]="item.icon" [size]="16" />
+            }
+            {{ item.label }}
+          </button>
+        }
       }
     </nav>
 
@@ -32,7 +46,7 @@
         type="button"
         class="hamburger"
         [attr.aria-expanded]="mobileMenuOpen()"
-        aria-label="Abrir menú"
+        [attr.aria-label]="hamburgerLabel()"
         (click)="toggleMobileMenu()"
       >
         <span></span>
@@ -45,17 +59,31 @@
   @if (mobileMenuOpen()) {
     <nav class="mobile-panel" aria-label="Main mobile">
       @for (item of items(); track item.id) {
-        <button
-          type="button"
-          class="mobile-item"
-          [class.active]="item.id === activeId()"
-          (click)="select(item)"
-        >
-          @if (item.icon) {
-            <generic-icon [name]="item.icon" [size]="16" />
-          }
-          {{ item.label }}
-        </button>
+        @if (item.href) {
+          <a
+            class="mobile-item"
+            [class.active]="item.id === activeId()"
+            [href]="item.href"
+            (click)="select(item)"
+          >
+            @if (item.icon) {
+              <generic-icon [name]="item.icon" [size]="16" />
+            }
+            {{ item.label }}
+          </a>
+        } @else {
+          <button
+            type="button"
+            class="mobile-item"
+            [class.active]="item.id === activeId()"
+            (click)="select(item)"
+          >
+            @if (item.icon) {
+              <generic-icon [name]="item.icon" [size]="16" />
+            }
+            {{ item.label }}
+          </button>
+        }
       }
     </nav>
   }

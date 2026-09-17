@@ -38,6 +38,10 @@ export class GenericNavbar {
     this.isDarkMode() ? 'Cambiar a tema claro' : 'Cambiar a tema oscuro',
   );
 
+  readonly hamburgerLabel = computed(() =>
+    this.mobileMenuOpen() ? 'Cerrar menú' : 'Abrir menú',
+  );
+
   toggleMobileMenu(): void {
     this.mobileMenuOpen.update((value) => !value);
   }
