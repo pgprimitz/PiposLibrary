@@ -1,0 +1,45 @@
+:host {
+  display: block;
+}
+
+.footer {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+  padding: 1rem 1.25rem;
+  background: var(--bg-surface);
+  border-top: 2px solid var(--border-subtle);
+}
+
+.brand:empty {
+  display: none;
+}
+
+.links {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.link {
+  font-family: var(--font-arcade);
+  font-size: 0.9rem;
+  text-decoration: none;
+  color: var(--text-muted);
+}
+
+.link:hover {
+  color: var(--accent-secondary);
+}
+
+.copyright {
+  margin: 0 0 0 auto;
+  font-family: var(--font-arcade);
+  font-size: 0.8rem;
+  color: var(--text-muted);
+}
