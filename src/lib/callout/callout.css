@@ -1,0 +1,70 @@
+:host {
+  display: block;
+}
+
+.callout {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  border: 1px solid var(--border-subtle);
+  border-left: 4px solid var(--border-subtle);
+  border-radius: 4px;
+  padding: 0.85rem 1rem;
+  background: color-mix(in srgb, var(--bg-surface) 90%, transparent);
+  text-align: left;
+}
+
+.title {
+  margin: 0;
+  font-family: var(--font-arcade);
+  font-weight: 700;
+  font-size: 0.9rem;
+}
+
+.body {
+  margin: 0;
+  font-family: var(--font-arcade);
+  font-size: 0.9rem;
+  color: var(--text-primary);
+}
+
+.body.citation {
+  font-style: italic;
+  color: var(--text-muted);
+}
+
+.source {
+  margin: 0;
+  font-family: var(--font-arcade);
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  text-align: right;
+}
+
+.variant-note {
+  border-left-color: var(--accent-secondary);
+}
+.variant-note .title {
+  color: var(--accent-secondary);
+}
+
+.variant-warning {
+  border-left-color: var(--accent-gold);
+}
+.variant-warning .title {
+  color: var(--accent-gold);
+}
+
+.variant-tip {
+  border-left-color: var(--accent-success);
+}
+.variant-tip .title {
+  color: var(--accent-success);
+}
+
+.variant-citation {
+  border-left-color: var(--accent-primary);
+}
+.variant-citation .title {
+  color: var(--accent-primary);
+}

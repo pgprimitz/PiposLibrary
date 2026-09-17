@@ -1,0 +1,24 @@
+<div class="field">
+  @if (label()) {
+    <label class="label">{{ label() }}</label>
+  }
+  <textarea
+    class="control"
+    [class.has-error]="error()"
+    [placeholder]="placeholder()"
+    [disabled]="disabled()"
+    [rows]="rows()"
+    [attr.maxlength]="maxLength() ?? null"
+    [attr.aria-invalid]="error() ? true : null"
+    [value]="value()"
+    (input)="value.set($any($event.target).value)"
+  ></textarea>
+  <div class="meta">
+    @if (error()) {
+      <span class="error">{{ error() }}</span>
+    }
+    @if (displayCount()) {
+      <span class="count">{{ used() }}/{{ maxLength() }}</span>
+    }
+  </div>
+</div>

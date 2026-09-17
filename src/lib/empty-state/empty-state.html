@@ -1,0 +1,12 @@
+<div class="empty">
+  <div class="icon">
+    <ng-content select="[icon]" />
+  </div>
+  <p class="title">{{ title() }}</p>
+  @if (description()) {
+    <p class="description">{{ description() }}</p>
+  }
+  <div class="action">
+    <ng-content select="[action]" />
+  </div>
+</div>

@@ -1,0 +1,31 @@
+<fieldset class="group">
+  @if (label()) {
+    <legend class="label">{{ label() }}</legend>
+  }
+  @for (option of options(); track option.value) {
+    <label class="row" [class.disabled]="option.disabled">
+      <span class="box" [class.on]="value() === option.value">
+        <input
+          type="radio"
+          [id]="optionId(option)"
+          [name]="name()"
+          [value]="option.value"
+          [checked]="value() === option.value"
+          [disabled]="option.disabled"
+          (change)="select(option)"
+        />
+        <span class="dot" aria-hidden="true"></span>
+      </span>
+      <span class="copy">
+        <span class="name">{{ option.label }}</span>
+        @if (option.description) {
+          <span class="hint">{{ option.description }}</span>
+        }
+      </span>
+    </label>
+  }
+</fieldset>
+
+@if (error()) {
+  <span class="error">{{ error() }}</span>
+}

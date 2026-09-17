@@ -1,0 +1,9 @@
+<div class="callout variant-{{ variant() }}">
+  <p class="title">{{ resolvedTitle() }}</p>
+  <div class="body" [class.citation]="variant() === 'citation'">
+    <ng-content />
+  </div>
+  @if (variant() === 'citation' && source()) {
+    <p class="source">— {{ source() }}</p>
+  }
+</div>
