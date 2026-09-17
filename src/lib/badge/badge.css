@@ -1,0 +1,38 @@
+:host {
+  display: inline-flex;
+}
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-family: var(--font-arcade);
+  text-transform: none;
+  letter-spacing: 0;
+  font-weight: 700;
+  border: 1px solid;
+  border-radius: 2px;
+  white-space: nowrap;
+  vertical-align: middle;
+}
+
+.size-sm { font-size: 11px; padding: 0.2rem 0.45rem; }
+.size-md { font-size: 13px; padding: 0.28rem 0.55rem; }
+
+.tone-cyan.look-solid { background: var(--accent-secondary-fill); color: #020617; border-color: var(--accent-secondary-fill); }
+.tone-cyan.look-outline { color: var(--accent-secondary); border-color: var(--accent-secondary); background: color-mix(in srgb, var(--accent-secondary) 12%, transparent); }
+
+.tone-magenta.look-solid { background: var(--accent-primary-fill); color: #020617; border-color: var(--accent-primary-fill); }
+.tone-magenta.look-outline { color: var(--accent-primary); border-color: var(--accent-primary); background: color-mix(in srgb, var(--accent-primary) 12%, transparent); }
+
+.tone-gold.look-solid { background: var(--accent-gold-fill); color: #1a1408; border-color: var(--accent-gold-fill); }
+.tone-gold.look-outline { color: var(--accent-gold); border-color: var(--accent-gold); background: color-mix(in srgb, var(--accent-gold) 12%, transparent); }
+
+.tone-green.look-solid { background: var(--accent-success-fill); color: #02140b; border-color: var(--accent-success-fill); }
+.tone-green.look-outline { color: var(--accent-success); border-color: var(--accent-success); background: color-mix(in srgb, var(--accent-success) 12%, transparent); }
+
+.tone-red.look-solid { background: var(--accent-danger-fill); color: #fff; border-color: var(--accent-danger-fill); }
+.tone-red.look-outline { color: var(--accent-danger); border-color: var(--accent-danger); background: color-mix(in srgb, var(--accent-danger) 12%, transparent); }
+
+.tone-neutral.look-solid { background: var(--bg-surface-alt); color: var(--text-primary); border-color: var(--border-subtle); }
+.tone-neutral.look-outline { color: var(--text-muted); border-color: var(--border-subtle); background: color-mix(in srgb, var(--bg-surface-alt) 40%, transparent); }

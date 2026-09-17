@@ -1,0 +1,63 @@
+:host {
+  display: block;
+  width: 100%;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  text-align: left;
+}
+
+.label {
+  font-family: var(--font-arcade);
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--accent-secondary);
+  letter-spacing: 0;
+}
+
+.wrap {
+  position: relative;
+}
+
+.control {
+  width: 100%;
+  appearance: none;
+  background: color-mix(in srgb, var(--bg-app) 80%, transparent);
+  border: 2px solid var(--border-subtle);
+  color: var(--accent-secondary);
+  font-family: var(--font-arcade);
+  font-size: 1rem;
+  padding: 0.5rem 2.2rem 0.5rem 0.75rem;
+  border-radius: 2px;
+  outline: none;
+  cursor: pointer;
+}
+
+.control:focus {
+  border-color: var(--accent-secondary);
+}
+
+.control.has-error {
+  border-color: var(--accent-danger);
+}
+
+.chevron {
+  position: absolute;
+  right: 0.8rem;
+  top: 50%;
+  width: 8px;
+  height: 8px;
+  border-right: 2px solid var(--text-muted);
+  border-bottom: 2px solid var(--text-muted);
+  transform: translateY(-70%) rotate(45deg);
+  pointer-events: none;
+}
+
+.error {
+  color: var(--accent-danger);
+  font-family: var(--font-arcade);
+  font-size: 0.85rem;
+}

@@ -1,0 +1,91 @@
+:host {
+  display: block;
+}
+
+.chart {
+  margin: 0;
+}
+
+figcaption {
+  font-family: var(--font-arcade);
+  font-size: 0.85rem;
+  font-weight: 700;
+  text-transform: none;
+  letter-spacing: 0;
+  color: var(--accent-secondary);
+  margin-bottom: 0.75rem;
+}
+
+.bars {
+  display: flex;
+  align-items: stretch;
+  gap: 0.5rem;
+}
+
+.col {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+.bar {
+  width: 100%;
+  min-height: 4px;
+  border: 1px solid color-mix(in srgb, black 25%, transparent);
+}
+
+.col span,
+.labels span {
+  font-family: var(--font-arcade);
+  font-size: 0.85rem;
+  color: var(--text-muted);
+}
+
+.line {
+  width: 100%;
+  background: color-mix(in srgb, var(--bg-app) 70%, transparent);
+  border: 2px solid var(--border-subtle);
+}
+
+.labels {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 0.35rem;
+}
+
+.donut-wrap {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.donut {
+  width: 140px;
+  height: 140px;
+  transform: rotate(-90deg);
+}
+
+.donut-wrap ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  font-family: var(--font-arcade);
+}
+
+.donut-wrap li {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.donut-wrap i {
+  width: 10px;
+  height: 10px;
+  display: inline-block;
+}

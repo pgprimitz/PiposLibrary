@@ -1,0 +1,30 @@
+<ol class="steps orient-{{ orientation() }}">
+  @for (step of steps(); track step.id; let i = $index; let last = $last) {
+    <li class="step" [attr.aria-current]="stateOf(i) === 'active' ? 'step' : null">
+      <div class="rail">
+        @if (orientation() === 'horizontal') {
+          <span class="line" [class.on]="i > 0 && stateOf(i) !== 'todo'" [class.hidden]="i === 0"></span>
+        }
+        <button
+          type="button"
+          class="dot {{ stateOf(i) }}"
+          [class.locked]="step.locked"
+          [disabled]="step.locked"
+          (click)="onClick(step, i)"
+        >
+          @if (stateOf(i) === 'done') {
+            ✓
+          } @else {
+            {{ i + 1 }}
+          }
+        </button>
+        @if (orientation() === 'horizontal') {
+          <span class="line" [class.on]="stateOf(i) === 'done'" [class.hidden]="last"></span>
+        } @else if (!last) {
+          <span class="vline" [class.on]="stateOf(i) === 'done'"></span>
+        }
+      </div>
+      <span class="caption" [class.active]="stateOf(i) === 'active'">{{ step.label }}</span>
+    </li>
+  }
+</ol>

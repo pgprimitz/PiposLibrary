@@ -1,0 +1,25 @@
+<div class="field">
+  @if (label()) {
+    <label class="label">{{ label() }}</label>
+  }
+  <div class="wrap">
+    <select
+      class="control"
+      [class.has-error]="error()"
+      [disabled]="disabled()"
+      [value]="value()"
+      (change)="value.set($any($event.target).value)"
+    >
+      @if (placeholder()) {
+        <option value="">{{ placeholder() }}</option>
+      }
+      @for (option of options(); track option.value) {
+        <option [value]="option.value" [disabled]="option.disabled">{{ option.label }}</option>
+      }
+    </select>
+    <span class="chevron" aria-hidden="true"></span>
+  </div>
+  @if (error()) {
+    <span class="error">{{ error() }}</span>
+  }
+</div>

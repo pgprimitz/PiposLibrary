@@ -1,0 +1,17 @@
+<generic-button
+  [variant]="variant()"
+  [size]="size()"
+  [disabled]="disabled()"
+  (click)="openPicker()"
+>
+  {{ label() }}
+</generic-button>
+<input
+  #fileInput
+  class="sr-only"
+  type="file"
+  [attr.accept]="accept()"
+  [multiple]="multiple()"
+  [disabled]="disabled()"
+  (change)="onChange($event)"
+/>

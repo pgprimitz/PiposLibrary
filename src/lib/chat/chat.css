@@ -1,0 +1,100 @@
+:host {
+  display: block;
+  width: 100%;
+  max-width: 28rem;
+}
+
+.frame {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  background: var(--bg-surface);
+  border: 2px solid var(--border-subtle);
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.tone-cyan { border-color: var(--accent-secondary); }
+.tone-magenta { border-color: var(--accent-primary); }
+.tone-gold { border-color: var(--accent-gold); }
+.tone-green { border-color: var(--accent-success); }
+.tone-red { border-color: var(--accent-danger); }
+.tone-neutral { border-color: var(--border-subtle); }
+
+.pixel {
+  position: absolute;
+  width: 6px;
+  height: 6px;
+  background: var(--border-subtle);
+  z-index: 1;
+}
+
+.tone-cyan .pixel { background: var(--accent-secondary); }
+.tone-magenta .pixel { background: var(--accent-primary); }
+.tone-gold .pixel { background: var(--accent-gold); }
+.tone-green .pixel { background: var(--accent-success); }
+.tone-red .pixel { background: var(--accent-danger); }
+
+.tl { top: -3px; left: -3px; }
+.tr { top: -3px; right: -3px; }
+.bl { bottom: -3px; left: -3px; }
+.br { bottom: -3px; right: -3px; }
+
+.head {
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
+  padding: 0.7rem 0.9rem;
+  border-bottom: 2px solid var(--border-subtle);
+  background: color-mix(in srgb, var(--bg-surface-alt) 80%, transparent);
+}
+
+.dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--accent-success-fill);
+  flex-shrink: 0;
+}
+
+.name {
+  margin: 0;
+  font-family: var(--font-retro);
+  font-size: 0.85rem;
+  font-weight: 400;
+  color: var(--text-primary);
+}
+
+.thread {
+  display: flex;
+  flex-direction: column;
+  gap: 0.55rem;
+  padding: 0.85rem 0.9rem 1rem;
+  min-height: 8rem;
+}
+
+.bubble {
+  margin: 0;
+  max-width: 80%;
+  padding: 0.55rem 0.75rem;
+  font-family: var(--font-arcade);
+  font-size: 0.95rem;
+  line-height: 1.35;
+  border: 2px solid;
+  border-radius: 4px 4px 4px 0;
+}
+
+.from-them {
+  align-self: flex-start;
+  background: color-mix(in srgb, var(--bg-surface-alt) 90%, transparent);
+  border-color: var(--border-subtle);
+  color: var(--text-primary);
+}
+
+.from-me {
+  align-self: flex-end;
+  background: var(--accent-secondary-fill);
+  border-color: var(--accent-secondary-fill);
+  color: #020617;
+  border-radius: 4px 4px 0 4px;
+}

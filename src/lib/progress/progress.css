@@ -1,0 +1,87 @@
+:host {
+  display: block;
+  width: 100%;
+}
+
+:host.hearts-mode {
+  display: inline-flex;
+  width: auto;
+}
+
+.wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  text-align: left;
+}
+
+.meta {
+  display: flex;
+  justify-content: space-between;
+  gap: 0.75rem;
+}
+
+.label,
+.value {
+  font-family: var(--font-arcade);
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 0;
+}
+
+.label { color: var(--text-primary); }
+.value { color: var(--text-muted); }
+
+.track {
+  width: 100%;
+  background: var(--bg-app);
+  border: 2px solid var(--border-subtle);
+  border-radius: 2px;
+  overflow: hidden;
+}
+
+.size-sm { height: 8px; }
+.size-md { height: 16px; }
+.size-lg { height: 24px; }
+
+.hearts {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.2rem;
+}
+
+.hearts.size-sm,
+.hearts.size-md,
+.hearts.size-lg {
+  height: auto;
+}
+
+.fill {
+  height: 100%;
+  transition: width 0.3s ease;
+}
+
+.segments {
+  display: flex;
+  height: 100%;
+  width: 100%;
+  gap: 2px;
+  padding: 2px;
+}
+
+.seg {
+  flex: 1;
+  background: var(--bg-surface-alt);
+}
+
+.seg.fill.tone-cyan,
+.fill.tone-cyan { background: var(--accent-secondary-fill); }
+.seg.fill.tone-magenta,
+.fill.tone-magenta { background: var(--accent-primary-fill); }
+.seg.fill.tone-gold,
+.fill.tone-gold { background: var(--accent-gold-fill); }
+.seg.fill.tone-green,
+.fill.tone-green { background: var(--accent-success-fill); }
+.seg.fill.tone-red,
+.fill.tone-red { background: var(--accent-danger-fill); }

@@ -1,0 +1,17 @@
+<div class="field">
+  @if (label()) {
+    <label class="label">{{ label() }}</label>
+  }
+  <input
+    class="control"
+    [class.has-error]="error()"
+    [type]="type()"
+    [placeholder]="placeholder()"
+    [disabled]="disabled()"
+    [value]="value()"
+    (input)="value.set($any($event.target).value)"
+  />
+  @if (error()) {
+    <span class="error">{{ error() }}</span>
+  }
+</div>

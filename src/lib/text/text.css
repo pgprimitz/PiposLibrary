@@ -1,0 +1,18 @@
+:host {
+  display: block;
+}
+
+.copy {
+  margin: 0;
+  font-family: var(--font-arcade);
+  color: var(--text-primary);
+  line-height: 1.4;
+}
+
+.muted {
+  color: var(--text-muted);
+}
+
+.size-sm { font-size: 0.75rem; }
+.size-md { font-size: 1rem; }
+.size-lg { font-size: 1.25rem; }

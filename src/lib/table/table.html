@@ -1,0 +1,72 @@
+<div class="shell">
+  <div class="toolbar">
+    @if (searchable()) {
+      <input
+        class="search"
+        type="search"
+        [placeholder]="searchPlaceholder()"
+        [value]="query()"
+        (input)="setQuery($any($event.target).value)"
+      />
+    }
+    @for (col of filterableColumns(); track col.key) {
+      <label class="filter">
+        {{ col.header }}
+        <select [value]="filterValue(col.key)" (change)="setFilter(col.key, $any($event.target).value)">
+          <option value="">Todos</option>
+          @for (option of filterOptions()[col.key]; track option) {
+            <option [value]="option">{{ option }}</option>
+          }
+        </select>
+      </label>
+    }
+  </div>
+
+  <div class="scroller">
+    <table>
+      <thead>
+        <tr>
+          @for (col of columns(); track col.key) {
+            <th
+              [style.width]="col.width"
+              [class]="'align-' + (col.align ?? 'left')"
+              [attr.aria-sort]="sortKey() === col.key ? (sortDir() === 'asc' ? 'ascending' : 'descending') : null"
+            >
+              @if (col.sortable) {
+                <button type="button" (click)="sort(col)">
+                  {{ col.header }}
+                  <span class="arrow" [class.on]="sortKey() === col.key">
+                    {{ sortKey() === col.key && sortDir() === 'desc' ? '▼' : '▲' }}
+                  </span>
+                </button>
+              } @else {
+                {{ col.header }}
+              }
+            </th>
+          }
+        </tr>
+      </thead>
+      <tbody>
+        @for (row of pageRows(); track $index) {
+          <tr (click)="rowClick.emit(row)">
+            @for (col of columns(); track col.key) {
+              <td [class]="'align-' + (col.align ?? 'left')">{{ cell(row, col.key) }}</td>
+            }
+          </tr>
+        } @empty {
+          <tr>
+            <td class="empty" [attr.colspan]="columns().length">{{ emptyMessage() }}</td>
+          </tr>
+        }
+      </tbody>
+    </table>
+  </div>
+
+  @if (pageCount() > 1) {
+    <nav class="pager" aria-label="paginación">
+      <button type="button" [disabled]="page() <= 1" (click)="go(page() - 1)">‹</button>
+      <span>{{ page() }} / {{ pageCount() }}</span>
+      <button type="button" [disabled]="page() >= pageCount()" (click)="go(page() + 1)">›</button>
+    </nav>
+  }
+</div>

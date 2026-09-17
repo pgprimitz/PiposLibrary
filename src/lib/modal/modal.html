@@ -1,0 +1,42 @@
+@if (open()) {
+  <div class="overlay" role="presentation">
+    <div class="backdrop" (click)="onBackdrop()" aria-hidden="true"></div>
+    <div
+      class="panel tone-{{ tone() }} size-{{ size() }}"
+      role="dialog"
+      aria-modal="true"
+      [attr.aria-label]="title()"
+      tabindex="-1"
+      (click)="$event.stopPropagation()"
+    >
+      <span class="pixel tl"></span>
+      <span class="pixel tr"></span>
+      <span class="pixel bl"></span>
+      <span class="pixel br"></span>
+
+      @if (title() || dismissable()) {
+        <header class="head">
+          <div class="titles">
+            @if (title()) {
+              <h2 class="title">{{ title() }}</h2>
+            }
+            @if (subtitle()) {
+              <p class="sub">{{ subtitle() }}</p>
+            }
+          </div>
+          @if (dismissable()) {
+            <button type="button" class="x" [attr.aria-label]="closeLabel()" (click)="close()">×</button>
+          }
+        </header>
+      }
+
+      <div class="body">
+        <ng-content />
+      </div>
+
+      <footer class="foot">
+        <ng-content select="[footer]" />
+      </footer>
+    </div>
+  </div>
+}

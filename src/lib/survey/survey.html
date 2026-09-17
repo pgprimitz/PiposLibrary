@@ -1,0 +1,62 @@
+<form class="survey" (submit)="$event.preventDefault(); submit()">
+  <header>
+    <h2>{{ title() }}</h2>
+  </header>
+
+  @for (question of questions(); track question.id; let i = $index) {
+    <fieldset>
+      <legend>{{ i + 1 }}. {{ question.prompt }}</legend>
+
+      @if (question.type === 'single') {
+        @for (option of question.options; track option.id) {
+          <label class="choice" [class.on]="asText(question.id) === option.id">
+            <input
+              type="radio"
+              [name]="question.id"
+              [checked]="asText(question.id) === option.id"
+              (change)="setSingle(question.id, option.id)"
+            />
+            {{ option.label }}
+          </label>
+        }
+      }
+
+      @if (question.type === 'multi') {
+        @for (option of question.options; track option.id) {
+          <label class="choice" [class.on]="asList(question.id).includes(option.id)">
+            <input
+              type="checkbox"
+              [checked]="asList(question.id).includes(option.id)"
+              (change)="toggleMulti(question.id, option.id)"
+            />
+            {{ option.label }}
+          </label>
+        }
+      }
+
+      @if (question.type === 'rating') {
+        <div class="stars" role="radiogroup">
+          @for (score of stars(question.max ?? 5); track score) {
+            <button
+              type="button"
+              [class.on]="score <= asNumber(question.id)"
+              (click)="setRating(question.id, score)"
+            >
+              ★
+            </button>
+          }
+        </div>
+      }
+
+      @if (question.type === 'text') {
+        <textarea
+          [value]="asText(question.id)"
+          (input)="setText(question.id, $any($event.target).value)"
+          rows="3"
+        ></textarea>
+      }
+    </fieldset>
+  }
+
+  <button class="send" type="submit">Enviar</button>
+</form>

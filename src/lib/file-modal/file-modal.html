@@ -1,0 +1,41 @@
+<generic-modal
+  [(open)]="open"
+  [title]="title()"
+  [subtitle]="subtitle()"
+  [tone]="tone()"
+  size="lg"
+>
+  <div
+    class="drop"
+    [class.over]="dragging()"
+    (dragover)="onDrag(true, $event)"
+    (dragleave)="onDrag(false, $event)"
+    (drop)="onDrop($event)"
+  >
+    <p>Soltá archivos acá</p>
+    <label class="pick">
+      Elegir archivos
+      <input type="file" [accept]="accept()" [multiple]="multiple()" (change)="onPick($event)" />
+    </label>
+    <small>Máximo {{ maxSizeMb() }} MB por archivo</small>
+  </div>
+
+  @if (error()) {
+    <p class="error">{{ error() }}</p>
+  }
+
+  @if (files().length) {
+    <ul class="list">
+      @for (file of files(); track file.name + file.size; let i = $index) {
+        <li>
+          <span>{{ file.name }} ({{ file.size }} B)</span>
+          <button type="button" (click)="remove(i)">Quitar</button>
+        </li>
+      }
+    </ul>
+  }
+
+  <div footer>
+    <ng-content select="[footer]" />
+  </div>
+</generic-modal>

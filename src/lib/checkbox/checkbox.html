@@ -1,0 +1,22 @@
+<div class="field">
+  <label class="row" [class.disabled]="disabled()">
+    <span class="box" [class.on]="checked()">
+      <input
+        type="checkbox"
+        [checked]="checked()"
+        [disabled]="disabled()"
+        (change)="toggle()"
+      />
+      <span class="tick" aria-hidden="true"></span>
+    </span>
+    <span class="copy">
+      <span class="name">{{ label() }}</span>
+      @if (description()) {
+        <span class="hint">{{ description() }}</span>
+      }
+    </span>
+  </label>
+  @if (error()) {
+    <span class="error">{{ error() }}</span>
+  }
+</div>

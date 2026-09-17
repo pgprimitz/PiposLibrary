@@ -1,0 +1,47 @@
+:host {
+  display: block;
+  width: 100%;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  text-align: left;
+}
+
+.label {
+  font-family: var(--font-arcade);
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--accent-secondary);
+  letter-spacing: 0;
+}
+
+.control {
+  width: 100%;
+  background: color-mix(in srgb, var(--bg-app) 80%, transparent);
+  border: 2px solid var(--border-subtle);
+  color: var(--accent-secondary);
+  font-family: var(--font-arcade);
+  font-size: 1rem;
+  padding: 0.5rem 0.75rem;
+  border-radius: 2px;
+  outline: none;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.control:focus {
+  border-color: var(--accent-secondary);
+  box-shadow: 0 0 0 1px var(--focus-glow);
+}
+
+.control.has-error {
+  border-color: var(--accent-danger);
+}
+
+.error {
+  color: var(--accent-danger);
+  font-family: var(--font-arcade);
+  font-size: 0.85rem;
+}

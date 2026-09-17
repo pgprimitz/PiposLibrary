@@ -1,0 +1,67 @@
+@if (open()) {
+  <div class="overlay" role="presentation">
+    <div class="backdrop" (click)="onBackdrop()" aria-hidden="true"></div>
+    <div
+      class="panel tone-{{ tone() }}"
+      role="dialog"
+      aria-modal="true"
+      [attr.aria-label]="title() || 'Curso'"
+      tabindex="-1"
+      (click)="$event.stopPropagation()"
+    >
+      <span class="pixel tl"></span>
+      <span class="pixel tr"></span>
+      <span class="pixel bl"></span>
+      <span class="pixel br"></span>
+
+      @if (dismissable()) {
+        <button type="button" class="x" [attr.aria-label]="closeLabel()" (click)="close()">×</button>
+      }
+
+      <div class="top">
+        <div class="headings">
+          @if (kicker()) {
+            <p class="kicker">{{ kicker() }}</p>
+          }
+          <h2 class="title">{{ title() }}</h2>
+          @if (subtitle()) {
+            <p class="sub">{{ subtitle() }}</p>
+          }
+        </div>
+        <div class="meta">
+          @if (maxLives() > 0) {
+            <generic-progress [hearts]="true" [value]="lives()" [max]="maxLives()" size="sm" />
+          }
+          @if (coins() !== null) {
+            <span class="coins">
+              <generic-icon name="coin" [size]="16" label="Monedas" />
+              <span>{{ coins() }}</span>
+            </span>
+          }
+        </div>
+      </div>
+
+      @if (badges().length) {
+        <div class="badges">
+          @for (badge of badges(); track badge.label) {
+            <generic-badge [tone]="badge.tone ?? 'cyan'" [appearance]="badge.appearance ?? 'outline'" size="sm">
+              {{ badge.label }}
+            </generic-badge>
+          }
+        </div>
+      }
+
+      <generic-progress
+        [value]="progressValue()"
+        [max]="progressMax()"
+        [label]="progressLabel()"
+        [showValue]="true"
+        tone="cyan"
+      />
+
+      <div class="actions">
+        <button type="button" class="cta" (click)="onAction()">{{ actionLabel() }}</button>
+      </div>
+    </div>
+  </div>
+}

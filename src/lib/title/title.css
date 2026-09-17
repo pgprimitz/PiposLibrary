@@ -1,0 +1,25 @@
+:host {
+  display: block;
+}
+
+.title {
+  margin: 0;
+  font-family: var(--font-retro);
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: 0;
+  line-height: 1.35;
+  -webkit-font-smoothing: none;
+  font-smooth: never;
+}
+
+.level-1 { font-size: 1.5rem; }
+.level-2 { font-size: 1.25rem; }
+.level-3 { font-size: 1rem; }
+
+.tone-cyan { color: var(--accent-secondary); }
+.tone-magenta { color: var(--accent-primary); }
+.tone-gold { color: var(--accent-gold); }
+.tone-green { color: var(--accent-success); }
+.tone-red { color: var(--accent-danger); }
+.tone-neutral { color: var(--text-primary); }

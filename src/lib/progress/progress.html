@@ -1,0 +1,51 @@
+<div class="wrap">
+  @if (label() || showValue() || showPercent()) {
+    <div class="meta">
+      @if (label()) {
+        <span class="label">{{ label() }}</span>
+      }
+      @if (showPercent()) {
+        <span class="value">{{ roundedPercent() }}%</span>
+      } @else if (showValue()) {
+        <span class="value">{{ value() }}/{{ max() }}</span>
+      }
+    </div>
+  }
+  @if (hearts()) {
+    <div
+      class="hearts size-{{ size() }}"
+      role="meter"
+      [attr.aria-valuenow]="value()"
+      [attr.aria-valuemin]="0"
+      [attr.aria-valuemax]="max()"
+      [attr.aria-label]="label() || 'Vidas'"
+    >
+      @for (filled of heartSlots(); track $index) {
+        <generic-icon
+          [name]="filled ? 'heart' : 'heart-empty'"
+          [size]="heartPx()"
+          [label]="filled ? 'Vida' : 'Vida perdida'"
+        />
+      }
+    </div>
+  } @else {
+    <div
+      class="track size-{{ size() }}"
+      role="progressbar"
+      [attr.aria-valuenow]="value()"
+      [attr.aria-valuemin]="0"
+      [attr.aria-valuemax]="max()"
+      [attr.aria-label]="label()"
+    >
+      @if (segmented()) {
+        <div class="segments">
+          @for (seg of segments; track seg) {
+            <span class="seg tone-{{ tone() }}" [class.fill]="seg < percent() / 5"></span>
+          }
+        </div>
+      } @else {
+        <div class="fill tone-{{ tone() }}" [style.width.%]="percent()"></div>
+      }
+    </div>
+  }
+</div>

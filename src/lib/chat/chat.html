@@ -1,0 +1,17 @@
+<div class="frame tone-{{ tone() }}" role="log" [attr.aria-label]="'Chat con ' + name()">
+  <span class="pixel tl"></span>
+  <span class="pixel tr"></span>
+  <span class="pixel bl"></span>
+  <span class="pixel br"></span>
+
+  <header class="head">
+    <span class="dot" aria-hidden="true"></span>
+    <h2 class="name">{{ name() }}</h2>
+  </header>
+
+  <div class="thread">
+    @for (msg of messages(); track msg.id ?? $index) {
+      <p class="bubble from-{{ msg.from === 'me' ? 'me' : 'them' }}">{{ msg.text }}</p>
+    }
+  </div>
+</div>

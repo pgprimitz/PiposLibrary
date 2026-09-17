@@ -1,0 +1,12 @@
+/* Demo-only extras. Tokens live in generic-ui/theme.css */
+
+body {
+  background-image:
+    linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.12) 50%),
+    linear-gradient(90deg, rgba(255, 0, 0, 0.03), rgba(0, 255, 0, 0.01), rgba(0, 0, 255, 0.03));
+  background-size: 100% 3px, 6px 100%;
+}
+
+:root[data-theme='light'] body {
+  background-image: none;
+}

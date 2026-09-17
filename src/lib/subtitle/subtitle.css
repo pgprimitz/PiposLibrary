@@ -1,0 +1,21 @@
+:host {
+  display: block;
+}
+
+.subtitle {
+  margin: 0;
+  font-family: var(--font-pixel);
+  font-size: 1.15rem;
+  letter-spacing: 0;
+  text-transform: none;
+  -webkit-font-smoothing: none;
+  font-smooth: never;
+  color: var(--text-muted);
+}
+
+.tone-cyan { color: var(--accent-secondary); }
+.tone-magenta { color: var(--accent-primary); }
+.tone-gold { color: var(--accent-gold); }
+.tone-green { color: var(--accent-success); }
+.tone-red { color: var(--accent-danger); }
+.tone-neutral { color: var(--text-muted); }

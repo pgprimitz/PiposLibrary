@@ -1,0 +1,24 @@
+<div class="menu">
+  <button type="button" class="trigger" [attr.aria-expanded]="open()" (click)="toggle()">
+    <ng-content />
+    <span>{{ label() }}</span>
+    <span class="chevron" aria-hidden="true"></span>
+  </button>
+  @if (open()) {
+    <ul class="list align-{{ align() }}" role="menu">
+      @for (item of items(); track item.id) {
+        <li>
+          <button
+            type="button"
+            role="menuitem"
+            [disabled]="item.disabled"
+            [class.danger]="item.danger"
+            (click)="pick(item)"
+          >
+            {{ item.label }}
+          </button>
+        </li>
+      }
+    </ul>
+  }
+</div>

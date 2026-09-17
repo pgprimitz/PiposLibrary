@@ -1,0 +1,78 @@
+:host {
+  display: inline-block;
+  position: relative;
+}
+
+.menu {
+  position: relative;
+}
+
+.trigger {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: var(--font-arcade);
+  font-size: 0.9rem;
+  font-weight: 700;
+  text-transform: none;
+  color: var(--text-primary);
+  background: var(--bg-surface);
+  border: 2px solid var(--border-subtle);
+  padding: 0.55rem 0.8rem;
+  cursor: pointer;
+}
+
+.trigger:hover {
+  border-color: var(--accent-secondary);
+  color: var(--accent-secondary);
+}
+
+.chevron {
+  width: 7px;
+  height: 7px;
+  border-right: 2px solid currentColor;
+  border-bottom: 2px solid currentColor;
+  transform: rotate(45deg) translateY(-2px);
+}
+
+.list {
+  position: absolute;
+  top: calc(100% + 4px);
+  z-index: 20;
+  min-width: 100%;
+  margin: 0;
+  padding: 0.25rem;
+  list-style: none;
+  background: var(--bg-surface);
+  border: 2px solid var(--accent-secondary);
+  box-shadow: 0 8px 0 color-mix(in srgb, var(--accent-secondary) 35%, black);
+}
+
+.align-left { left: 0; }
+.align-right { right: 0; }
+
+.list button {
+  width: 100%;
+  text-align: left;
+  background: transparent;
+  border: 0;
+  color: var(--text-primary);
+  font-family: var(--font-arcade);
+  font-size: 1rem;
+  padding: 0.45rem 0.7rem;
+  cursor: pointer;
+}
+
+.list button:hover:not(:disabled) {
+  background: var(--bg-surface-alt);
+  color: var(--accent-secondary);
+}
+
+.list button.danger {
+  color: var(--accent-danger);
+}
+
+.list button:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}

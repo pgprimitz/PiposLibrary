@@ -1,0 +1,51 @@
+<figure class="chart">
+  @if (caption()) {
+    <figcaption>{{ caption() }}</figcaption>
+  }
+
+  @if (type() === 'bar') {
+    <div class="bars" [style.height.px]="height()">
+      @for (bar of bars(); track bar.label) {
+        <div class="col">
+          <div class="bar" [style.height.%]="bar.h" [style.background]="bar.color" [title]="bar.label + ': ' + bar.value"></div>
+          <span>{{ bar.label }}</span>
+        </div>
+      }
+    </div>
+  }
+
+  @if (type() === 'line') {
+    <svg class="line" viewBox="0 0 100 100" preserveAspectRatio="none" [style.height.px]="height()" role="img">
+      <polyline [attr.points]="linePoints()" fill="none" stroke="var(--accent-secondary)" stroke-width="2" vector-effect="non-scaling-stroke" />
+    </svg>
+    <div class="labels">
+      @for (point of data(); track point.label) {
+        <span>{{ point.label }}</span>
+      }
+    </div>
+  }
+
+  @if (type() === 'donut') {
+    <div class="donut-wrap">
+      <svg viewBox="0 0 36 36" class="donut" role="img">
+        @for (slice of donut(); track slice.label) {
+          <circle
+            cx="18"
+            cy="18"
+            r="15.915"
+            fill="transparent"
+            [attr.stroke]="slice.color"
+            stroke-width="4"
+            [attr.stroke-dasharray]="slice.dash + ' ' + (100 - slice.dash)"
+            [attr.stroke-dashoffset]="25 - slice.offset"
+          />
+        }
+      </svg>
+      <ul>
+        @for (slice of donut(); track slice.label) {
+          <li><i [style.background]="slice.color"></i>{{ slice.label }} {{ slice.percent }}%</li>
+        }
+      </ul>
+    </div>
+  }
+</figure>

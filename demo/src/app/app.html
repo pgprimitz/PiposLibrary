@@ -1,0 +1,155 @@
+<div class="page">
+  <header class="top">
+    <div>
+      <generic-title tone="cyan">generic-ui</generic-title>
+      <generic-subtitle>Librería arcade para el monolito de 12 grupos</generic-subtitle>
+    </div>
+    <div class="top-actions">
+      <generic-switch
+        [label]="theme.theme() === 'dark' ? 'Oscuro' : 'Claro'"
+        [checked]="theme.theme() === 'dark'"
+        (checkedChange)="theme.set($event ? 'dark' : 'light')"
+      />
+      <generic-dropdown label="Cuenta" [items]="menu" (itemSelect)="onMenu($event)" />
+    </div>
+  </header>
+
+  <p class="log">{{ log() }}</p>
+
+  <section>
+    <generic-title [level]="2" tone="gold">Tipografía</generic-title>
+    <generic-card>
+      <generic-title>Título principal</generic-title>
+      <generic-subtitle>Subtítulo de apoyo, pixel pero legible</generic-subtitle>
+      <generic-text>Texto de cuerpo para descripciones, ayudas y copy largo entre grupos.</generic-text>
+      <generic-text [muted]="true" size="sm">Texto muted para metadatos.</generic-text>
+    </generic-card>
+  </section>
+
+  <section>
+    <generic-title [level]="2" tone="gold">Botones</generic-title>
+    <div class="row">
+      <generic-button variant="magenta" (click)="note('Magenta')">Acción</generic-button>
+      <generic-button variant="cyan" (click)="note('Cyan')">Guardar</generic-button>
+      <generic-button variant="gold" size="sm">XP</generic-button>
+      <generic-button variant="green">OK</generic-button>
+      <generic-button variant="ghost">Fantasma</generic-button>
+      <generic-import-button accept=".csv,.json" [multiple]="true" label="Importar" (filesSelected)="onImport($event)" />
+    </div>
+    @if (imported().length) {
+      <generic-text size="sm">Archivos: {{ imported().join(', ') }}</generic-text>
+    }
+  </section>
+
+  <section>
+    <generic-title [level]="2" tone="gold">Badges e iconos</generic-title>
+    <div class="row">
+      <generic-badge>Pendiente</generic-badge>
+      <generic-badge tone="green" appearance="solid">Activo</generic-badge>
+      <generic-badge tone="gold">En curso</generic-badge>
+      <generic-badge tone="red">Vencido</generic-badge>
+      <generic-badge tone="magenta">Nuevo</generic-badge>
+    </div>
+    <div class="icons">
+      @for (icon of icons; track icon) {
+        <span class="icon-cell">
+          <generic-icon [name]="icon" [size]="24" />
+          <small>{{ icon }}</small>
+        </span>
+      }
+    </div>
+  </section>
+
+  <section>
+    <generic-title [level]="2" tone="gold">Formularios</generic-title>
+    <div class="grid-2">
+      <generic-input label="Usuario" placeholder="tami" [(value)]="username" />
+      <generic-select label="Materia" placeholder="Elegí una" [options]="courses" [(value)]="course" />
+    </div>
+    <generic-checkbox
+      label="Acepto el reglamento"
+      description="Vale para todos los grupos del monolito."
+      [(checked)]="agreed"
+    />
+  </section>
+
+  <section>
+    <generic-title [level]="2" tone="gold">Modales</generic-title>
+    <div class="row">
+      <generic-button variant="cyan" (click)="modalOpen.set(true)">Modal normal</generic-button>
+      <generic-button variant="gold" (click)="fileOpen.set(true)">Modal de archivos</generic-button>
+      @for (course of courseCards; track course.title) {
+        <generic-button [variant]="course.tone === 'naranja' ? 'gold' : course.tone === 'rosa' ? 'magenta' : 'cyan'" (click)="openCourse(course)">
+          {{ course.title }}
+        </generic-button>
+      }
+    </div>
+    <generic-modal [(open)]="modalOpen" title="Confirmar baja" subtitle="Esta acción no se deshace" tone="magenta">
+      <generic-text>¿Eliminás el registro de {{ username() || 'este usuario' }}?</generic-text>
+      <div footer>
+        <generic-button variant="ghost" size="sm" (click)="modalOpen.set(false)">Cancelar</generic-button>
+        <generic-button size="sm" (click)="modalOpen.set(false); note('Confirmado')">Confirmar</generic-button>
+      </div>
+    </generic-modal>
+    <generic-file-modal [(open)]="fileOpen" accept=".pdf,.png,.csv" (filesChange)="note('Cola: ' + $event.length + ' archivo(s)')">
+      <div footer>
+        <generic-button size="sm" (click)="fileOpen.set(false)">Listo</generic-button>
+      </div>
+    </generic-file-modal>
+    <generic-course-modal
+      [(open)]="courseOpen"
+      [tone]="selectedCourse().tone"
+      [kicker]="selectedCourse().kicker"
+      [title]="selectedCourse().title"
+      [subtitle]="selectedCourse().subtitle"
+      [lives]="selectedCourse().lives"
+      [maxLives]="3"
+      [coins]="selectedCourse().coins"
+      [badges]="courseBadges"
+      [progressValue]="selectedCourse().progress"
+      actionLabel="Ver curso"
+      (actionClick)="courseOpen.set(false); note('Abrir ' + selectedCourse().title)"
+    />
+  </section>
+
+  <section>
+    <generic-title [level]="2" tone="gold">Stepper, carga y switch</generic-title>
+    <generic-stepper [steps]="steps" [currentIndex]="step()" (stepClick)="step.set($event.index); note('Paso ' + ($event.index + 1))" />
+    <div class="grid-2">
+      <generic-progress [value]="72" label="Avance" [showPercent]="true" tone="cyan" />
+      <generic-progress [value]="3" [max]="5" label="Vidas" [hearts]="true" />
+    </div>
+    <div class="row">
+      <generic-spinner />
+      <generic-spinner size="lg" />
+    </div>
+  </section>
+
+  <section>
+    <generic-title [level]="2" tone="gold">Tabla</generic-title>
+    <generic-table [columns]="columns" [rows]="rows" (rowClick)="note('Fila: ' + $any($event).name)" />
+  </section>
+
+  <section>
+    <generic-title [level]="2" tone="gold">Dashboard</generic-title>
+    <generic-dashboard>
+      <generic-stat label="Alumnos" [value]="128" hint="+12 esta semana" icon="user" tone="cyan" />
+      <generic-stat label="XP total" [value]="48210" hint="ranking P90" icon="trophy" tone="gold" />
+      <generic-stat label="Entregas" [value]="64" hint="hoy" icon="check" tone="green" />
+      <generic-stat label="Alertas" [value]="3" hint="sin leer" icon="bell" tone="magenta" />
+      <generic-chart type="bar" caption="Entregas por día" [data]="weekly" />
+      <generic-chart type="line" caption="Tendencia" [data]="weekly" />
+      <generic-chart type="donut" caption="Estados" [data]="status" />
+    </generic-dashboard>
+  </section>
+
+  <section>
+    <generic-title [level]="2" tone="gold">Chat</generic-title>
+    <generic-chat name="Tamara Ruiz" [messages]="chatMessages" />
+  </section>
+
+  <section>
+    <generic-title [level]="2" tone="gold">Encuesta</generic-title>
+    <generic-survey title="Feedback de la unidad" [questions]="questions" [(value)]="answers" (submitted)="note('Encuesta enviada')" />
+  </section>
+</div>

@@ -1,0 +1,16 @@
+:host {
+  display: inline-flex;
+}
+
+.spinner {
+  display: inline-block;
+  border-style: solid;
+  border-color: var(--accent-secondary-fill);
+  border-top-color: transparent;
+  border-radius: 50%;
+  animation: generic-spin 0.7s linear infinite;
+}
+
+.size-sm { width: 16px; height: 16px; border-width: 2px; }
+.size-md { width: 32px; height: 32px; border-width: 4px; }
+.size-lg { width: 48px; height: 48px; border-width: 4px; }
