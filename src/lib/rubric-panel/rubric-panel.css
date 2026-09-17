@@ -45,12 +45,16 @@
   font-family: var(--font-arcade);
 }
 
-.level:not(:disabled):hover {
+.level:not(.static):hover {
   border-color: var(--accent-secondary);
 }
 
 .level.static {
   cursor: default;
+}
+
+.level.static:hover {
+  border-color: var(--border-subtle);
 }
 
 .level.selected {

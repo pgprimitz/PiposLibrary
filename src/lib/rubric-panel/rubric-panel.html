@@ -3,15 +3,15 @@
     <section class="criterion" [attr.aria-label]="criterion.label">
       <h3 class="criterion-label">{{ criterion.label }}</h3>
 
-      <div class="levels" role="group" [attr.aria-label]="criterion.label + ' levels'">
+      <div class="levels" role="radiogroup" [attr.aria-label]="criterion.label + ' - niveles'">
         @for (level of criterion.levels; track $index) {
           <button
             type="button"
+            role="radio"
             class="level"
             [class.selected]="isSelected(criterion, $index)"
             [class.static]="readonly()"
-            [attr.aria-pressed]="!readonly() ? isSelected(criterion, $index) : null"
-            [disabled]="readonly()"
+            [attr.aria-checked]="isSelected(criterion, $index)"
             (click)="onLevelClick(criterion, $index)"
           >
             <span class="level-label">{{ level.label }}</span>
