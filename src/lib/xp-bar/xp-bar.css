@@ -1,0 +1,23 @@
+:host {
+  display: block;
+  width: 100%;
+}
+
+.wrap {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.level-tag {
+  flex-shrink: 0;
+  font-family: var(--font-arcade);
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--accent-gold);
+  white-space: nowrap;
+}
+
+.bar {
+  flex: 1;
+}

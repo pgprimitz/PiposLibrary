@@ -1,0 +1,20 @@
+:host {
+  display: inline-flex;
+}
+
+.wrap {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-family: var(--font-arcade);
+  font-weight: 700;
+  color: var(--accent-gold);
+}
+
+.size-sm { font-size: 0.8rem; }
+.size-md { font-size: 1rem; }
+.size-lg { font-size: 1.3rem; }
+
+.count {
+  color: var(--text-primary);
+}

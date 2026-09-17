@@ -64,3 +64,10 @@ export * from './lib/activity-kind-badge/activity-kind-badge';
 export * from './lib/course-status-badge/course-status-badge';
 export * from './lib/grade-badge/grade-badge';
 export * from './lib/course-meta-badges/course-meta-badges';
+
+export * from './lib/xp-bar/xp-bar';
+export * from './lib/coin-counter/coin-counter';
+export * from './lib/streak-flame/streak-flame';
+export * from './lib/level-badge/level-badge';
+export * from './lib/badge-showcase/badge-showcase';
+export * from './lib/badge-showcase/badge-showcase.models';

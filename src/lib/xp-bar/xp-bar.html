@@ -1,0 +1,13 @@
+<div class="wrap">
+  @if (level() !== null) {
+    <span class="level-tag">Nivel {{ level() }}</span>
+  }
+  <generic-progress
+    class="bar"
+    [value]="currentXp()"
+    [max]="levelXp()"
+    [tone]="tone()"
+    [label]="ariaLabel()"
+    [showValue]="true"
+  />
+</div>
