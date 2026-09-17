@@ -57,3 +57,10 @@ export * from './lib/course-outline/course-outline';
 export * from './lib/course-outline/course-outline.models';
 export * from './lib/rubric-panel/rubric-panel';
 export * from './lib/rubric-panel/rubric-panel.models';
+
+export * from './lib/domain-types';
+export * from './lib/activity-status-badge/activity-status-badge';
+export * from './lib/activity-kind-badge/activity-kind-badge';
+export * from './lib/course-status-badge/course-status-badge';
+export * from './lib/grade-badge/grade-badge';
+export * from './lib/course-meta-badges/course-meta-badges';
