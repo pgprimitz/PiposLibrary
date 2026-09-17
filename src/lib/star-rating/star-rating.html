@@ -1,0 +1,16 @@
+<div class="stars size-{{ size() }}" [class.readonly]="readonly()">
+  @for (star of stars(); track star) {
+    <button
+      type="button"
+      class="star"
+      [class.filled]="star <= previewValue()"
+      [disabled]="readonly()"
+      [tabindex]="-1"
+      [attr.aria-hidden]="true"
+      (mouseenter)="onHover(star)"
+      (click)="onClick(star)"
+    >
+      <generic-icon name="star" [size]="starPx()" />
+    </button>
+  }
+</div>

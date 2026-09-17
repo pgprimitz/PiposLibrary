@@ -47,3 +47,7 @@ export * from './lib/footer/footer';
 export * from './lib/footer/footer.models';
 export * from './lib/navbar/navbar';
 export * from './lib/navbar/navbar.models';
+export * from './lib/lesson-header/lesson-header';
+export * from './lib/code-block/code-block';
+export * from './lib/countdown-timer/countdown-timer';
+export * from './lib/star-rating/star-rating';

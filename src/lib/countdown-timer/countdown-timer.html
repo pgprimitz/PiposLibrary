@@ -1,0 +1,11 @@
+<div class="wrap" [class.critical]="critical()">
+  <span class="display" role="timer" [attr.aria-label]="'Tiempo restante ' + display()">{{ display() }}</span>
+  <button
+    type="button"
+    class="pause-btn"
+    (click)="togglePause()"
+    [attr.aria-label]="paused() ? 'Reanudar' : 'Pausar'"
+  >
+    <generic-icon [name]="paused() ? 'check' : 'clock'" [size]="16" />
+  </button>
+</div>
