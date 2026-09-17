@@ -1,0 +1,101 @@
+:host {
+  display: block;
+  text-align: left;
+}
+
+.modules {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  width: 100%;
+  background: var(--bg-surface);
+  border: 2px solid var(--border-subtle);
+  padding: 0.6rem 0.75rem;
+  cursor: pointer;
+  font-family: var(--font-arcade);
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.header:hover {
+  border-color: var(--accent-secondary);
+  color: var(--accent-secondary);
+}
+
+.chevron {
+  width: 7px;
+  height: 7px;
+  flex-shrink: 0;
+  border-right: 2px solid currentColor;
+  border-bottom: 2px solid currentColor;
+  transform: rotate(-45deg);
+  transition: transform 0.15s ease;
+}
+
+.chevron.open {
+  transform: rotate(45deg) translate(-1px, -1px);
+}
+
+.header .label {
+  font-size: 0.95rem;
+}
+
+.lessons {
+  list-style: none;
+  margin: 0.25rem 0 0;
+  padding: 0 0 0 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+  border-left: 2px solid var(--border-subtle);
+}
+
+.lesson {
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
+  width: 100%;
+  background: transparent;
+  border: 2px solid transparent;
+  padding: 0.45rem 0.6rem;
+  cursor: pointer;
+  font-family: var(--font-arcade);
+  font-size: 0.9rem;
+  color: var(--text-primary);
+  text-align: left;
+}
+
+.lesson:hover:not(:disabled) {
+  background: var(--bg-surface-alt);
+}
+
+.lesson.active {
+  background: color-mix(in srgb, var(--accent-secondary) 15%, transparent);
+  border-color: var(--accent-secondary);
+  color: var(--accent-secondary);
+}
+
+.lesson.locked {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.status {
+  flex-shrink: 0;
+}
+
+.status.dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--border-subtle);
+}

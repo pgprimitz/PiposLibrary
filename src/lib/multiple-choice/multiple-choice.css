@@ -1,0 +1,110 @@
+:host {
+  display: block;
+  text-align: left;
+}
+
+.widget.disabled {
+  opacity: 0.7;
+}
+
+.question {
+  font-family: var(--font-arcade);
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin: 0 0 0.75rem;
+}
+
+.group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.row {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.65rem;
+  padding: 0.5rem 0.6rem;
+  border: 2px solid var(--border-subtle);
+  border-radius: 2px;
+  cursor: pointer;
+}
+
+.row.disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.row.correct {
+  border-color: var(--accent-success);
+  background: color-mix(in srgb, var(--accent-success) 12%, transparent);
+}
+
+.row.incorrect {
+  border-color: var(--accent-danger);
+  background: color-mix(in srgb, var(--accent-danger) 12%, transparent);
+}
+
+.box {
+  position: relative;
+  width: 20px;
+  height: 20px;
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+
+.box input {
+  appearance: none;
+  width: 20px;
+  height: 20px;
+  margin: 0;
+  background: var(--bg-app);
+  border: 2px solid var(--accent-secondary);
+  border-radius: 50%;
+  cursor: inherit;
+}
+
+.box.on input {
+  border-color: var(--accent-secondary-fill);
+}
+
+.dot {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.box.on .dot {
+  opacity: 1;
+}
+
+.dot::before {
+  content: '';
+  position: absolute;
+  left: 4px;
+  top: 4px;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--accent-secondary-fill);
+}
+
+.row.correct .dot::before,
+.row.correct .box input {
+  background: var(--accent-success-fill);
+  border-color: var(--accent-success-fill);
+}
+
+.row.incorrect .dot::before,
+.row.incorrect .box input {
+  background: var(--accent-danger-fill);
+  border-color: var(--accent-danger-fill);
+}
+
+.text {
+  font-family: var(--font-arcade);
+  font-size: 0.95rem;
+  color: var(--text-primary);
+}
