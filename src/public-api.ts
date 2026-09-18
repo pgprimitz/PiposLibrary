@@ -1,4 +1,4 @@
-export * from './lib/types';
+export * from './lib/sentence-case/sentence-case.pipe';
 export * from './lib/theme/theme.service';
 
 export * from './lib/title/title';

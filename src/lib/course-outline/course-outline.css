@@ -9,31 +9,32 @@
   padding: 0;
   display: flex;
   flex-direction: column;
-  gap: 0.4rem;
+  gap: 0.1rem;
 }
 
 .header {
   display: flex;
   align-items: center;
-  gap: 0.6rem;
+  gap: 0.45rem;
   width: 100%;
-  background: var(--bg-surface);
-  border: 2px solid var(--border-subtle);
-  padding: 0.6rem 0.75rem;
+  background: transparent;
+  border: 0;
+  border-radius: 6px;
+  padding: 0.48rem 0.55rem;
   cursor: pointer;
   font-family: var(--font-arcade);
-  font-weight: 700;
+  font-weight: 600;
   color: var(--text-primary);
 }
 
 .header:hover {
-  border-color: var(--accent-secondary);
+  background: color-mix(in srgb, var(--bg-surface-alt) 80%, transparent);
   color: var(--accent-secondary);
 }
 
 .chevron {
-  width: 7px;
-  height: 7px;
+  width: 6px;
+  height: 6px;
   flex-shrink: 0;
   border-right: 2px solid currentColor;
   border-bottom: 2px solid currentColor;
@@ -46,13 +47,13 @@
 }
 
 .header .label {
-  font-size: 0.95rem;
+  font-size: 0.82rem;
 }
 
 .lessons {
   list-style: none;
   margin: 0.25rem 0 0;
-  padding: 0 0 0 1.5rem;
+  padding: 0 0 0 1rem;
   display: flex;
   flex-direction: column;
   gap: 0.2rem;
@@ -62,14 +63,15 @@
 .lesson {
   display: flex;
   align-items: center;
-  gap: 0.55rem;
+  gap: 0.45rem;
   width: 100%;
   background: transparent;
-  border: 2px solid transparent;
-  padding: 0.45rem 0.6rem;
+  border: 0;
+  border-radius: 6px;
+  padding: 0.38rem 0.55rem;
   cursor: pointer;
   font-family: var(--font-arcade);
-  font-size: 0.9rem;
+  font-size: 0.78rem;
   color: var(--text-primary);
   text-align: left;
 }
@@ -79,8 +81,8 @@
 }
 
 .lesson.active {
-  background: color-mix(in srgb, var(--accent-secondary) 15%, transparent);
-  border-color: var(--accent-secondary);
+  background: color-mix(in srgb, var(--accent-secondary-fill) 16%, transparent);
+  box-shadow: inset 3px 0 0 var(--accent-secondary);
   color: var(--accent-secondary);
 }
 

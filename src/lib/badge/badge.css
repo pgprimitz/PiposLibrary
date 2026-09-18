@@ -31,7 +31,7 @@
 .tone-green.look-solid { background: var(--accent-success-fill); color: #02140b; border-color: var(--accent-success-fill); }
 .tone-green.look-outline { color: var(--accent-success); border-color: var(--accent-success); background: color-mix(in srgb, var(--accent-success) 12%, transparent); }
 
-.tone-red.look-solid { background: var(--accent-danger-fill); color: #fff; border-color: var(--accent-danger-fill); }
+.tone-red.look-solid { background: var(--accent-danger-fill); color: #1a1408; border-color: var(--accent-danger-fill); }
 .tone-red.look-outline { color: var(--accent-danger); border-color: var(--accent-danger); background: color-mix(in srgb, var(--accent-danger) 12%, transparent); }
 
 .tone-neutral.look-solid { background: var(--bg-surface-alt); color: var(--text-primary); border-color: var(--border-subtle); }

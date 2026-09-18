@@ -6,7 +6,7 @@
   margin: 0;
   font-family: var(--font-retro);
   font-weight: 400;
-  text-transform: uppercase;
+  text-transform: none;
   letter-spacing: 0;
   line-height: 1.35;
   -webkit-font-smoothing: none;

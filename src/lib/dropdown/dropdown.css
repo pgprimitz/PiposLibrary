@@ -51,6 +51,18 @@
 .align-left { left: 0; }
 .align-right { right: 0; }
 
+:host-context(generic-navbar) {
+  position: static;
+}
+
+:host-context(generic-navbar) .menu {
+  position: static;
+}
+
+:host-context(generic-navbar) .list {
+  top: calc(100% - 2px);
+}
+
 .list button {
   width: 100%;
   text-align: left;

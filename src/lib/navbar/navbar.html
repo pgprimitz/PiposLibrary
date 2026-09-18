@@ -2,57 +2,63 @@
   <div class="row">
     <span class="brand">{{ brandLabel() }}</span>
 
-    <nav class="nav-links" aria-label="Main">
-      @for (item of items(); track item.id) {
-        @if (item.href) {
-          <a
-            class="nav-item"
-            [class.active]="item.id === activeId()"
-            [href]="item.href"
-            (click)="select(item)"
-          >
-            @if (item.icon) {
-              <generic-icon [name]="item.icon" [size]="16" />
-            }
-            {{ item.label }}
-          </a>
-        } @else {
-          <button
-            type="button"
-            class="nav-item"
-            [class.active]="item.id === activeId()"
-            (click)="select(item)"
-          >
-            @if (item.icon) {
-              <generic-icon [name]="item.icon" [size]="16" />
-            }
-            {{ item.label }}
-          </button>
+    <div class="end">
+      <div class="actions">
+        <button
+          type="button"
+          class="theme-toggle"
+          [attr.aria-label]="themeIconLabel()"
+          (click)="toggleTheme()"
+        >
+          <span class="theme-icon" [class.mode-dark]="isDarkMode()" [class.mode-light]="!isDarkMode()"></span>
+        </button>
+
+        <button
+          type="button"
+          class="hamburger"
+          [attr.aria-expanded]="mobileMenuOpen()"
+          [attr.aria-label]="hamburgerLabel()"
+          (click)="toggleMobileMenu()"
+        >
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+
+      <nav class="nav-links" aria-label="Main">
+        @for (item of items(); track item.id) {
+          @if (item.href) {
+            <a
+              class="nav-item"
+              [class.active]="item.id === activeId()"
+              [href]="item.href"
+              (click)="select(item)"
+            >
+              @if (item.icon) {
+                <generic-icon [name]="item.icon" [size]="16" />
+              }
+              {{ item.label }}
+            </a>
+          } @else {
+            <button
+              type="button"
+              class="nav-item"
+              [class.active]="item.id === activeId()"
+              (click)="select(item)"
+            >
+              @if (item.icon) {
+                <generic-icon [name]="item.icon" [size]="16" />
+              }
+              {{ item.label }}
+            </button>
+          }
         }
-      }
-    </nav>
+      </nav>
 
-    <div class="actions">
-      <button
-        type="button"
-        class="theme-toggle"
-        [attr.aria-label]="themeIconLabel()"
-        (click)="toggleTheme()"
-      >
-        <span class="theme-icon" [class.mode-dark]="isDarkMode()" [class.mode-light]="!isDarkMode()"></span>
-      </button>
-
-      <button
-        type="button"
-        class="hamburger"
-        [attr.aria-expanded]="mobileMenuOpen()"
-        [attr.aria-label]="hamburgerLabel()"
-        (click)="toggleMobileMenu()"
-      >
-        <span></span>
-        <span></span>
-        <span></span>
-      </button>
+      <div class="account">
+        <ng-content select="[account]" />
+      </div>
     </div>
   </div>
 

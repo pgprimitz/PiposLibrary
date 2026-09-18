@@ -33,6 +33,12 @@ interface GenericNavItem {
 - El menú móvil (hamburguesa) solo es visible por debajo de los 768px (breakpoint por defecto, no había uno definido en la librería). Se cierra automáticamente al hacer click fuera del componente, usando el mismo patrón `inject(ElementRef)` + `@HostListener('document:click', ...)` que `generic-dropdown`.
 - Clickear un ítem de navegación cierra el menú móvil además de emitir `itemClick`.
 
+## Proyección de contenido
+
+`[account]` — slot al final de la barra (después de luna + links). Pensado para el perfil / legajo.
+
+Orden a la derecha: toggle de tema, links, cuenta.
+
 ## Uso
 
 ```html
@@ -44,5 +50,7 @@ interface GenericNavItem {
   ]"
   activeId="home"
   (itemClick)="navigate($event)"
-/>
+>
+  <button account type="button">412349</button>
+</generic-navbar>
 ```

@@ -1,8 +1,10 @@
 <header class="header tone-{{ tone() }}">
-  @if (badgeLabel()) {
-    <generic-badge [tone]="tone()" size="sm" class="badge">{{ badgeLabel() }}</generic-badge>
-  }
-  <h1 class="title">{{ title() }}</h1>
+  <div class="title-row">
+    <h1 class="title">{{ title() }}</h1>
+    @if (badgeLabel()) {
+      <generic-badge [tone]="tone()" size="sm" class="badge">{{ badgeLabel() }}</generic-badge>
+    }
+  </div>
   @if (subtitle()) {
     <p class="subtitle">{{ subtitle() }}</p>
   }
