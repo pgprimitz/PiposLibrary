@@ -4,7 +4,7 @@
 
 .card {
   position: relative;
-  background: color-mix(in srgb, var(--bg-surface) 90%, transparent);
+  background: var(--bg-surface);
   border: 1px solid var(--border-subtle);
   border-radius: 6px;
 }

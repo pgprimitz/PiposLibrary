@@ -38,28 +38,28 @@
 .variant-cyan {
   background: var(--accent-secondary-fill);
   border-color: var(--accent-secondary-fill);
-  color: #020617;
+  color: #1a1814;
   box-shadow: 0 4px 0 color-mix(in srgb, var(--accent-secondary-fill) 65%, black);
 }
 
 .variant-magenta {
   background: var(--accent-primary-fill);
   border-color: var(--accent-primary-fill);
-  color: #020617;
+  color: #1a1814;
   box-shadow: 0 4px 0 color-mix(in srgb, var(--accent-primary-fill) 65%, black);
 }
 
 .variant-gold {
   background: var(--accent-gold-fill);
   border-color: var(--accent-gold-fill);
-  color: #1a1408;
+  color: #1a1814;
   box-shadow: 0 4px 0 color-mix(in srgb, var(--accent-gold-fill) 65%, black);
 }
 
 .variant-green {
   background: var(--accent-success-fill);
   border-color: var(--accent-success-fill);
-  color: #02140b;
+  color: #1a1814;
   box-shadow: 0 4px 0 color-mix(in srgb, var(--accent-success-fill) 65%, black);
 }
 

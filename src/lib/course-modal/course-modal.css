@@ -70,6 +70,26 @@
   --course-fill: var(--accent-primary-fill);
 }
 
+:host-context([data-theme='dark']) .tone-celeste {
+  --course-accent: #4aa8c8;
+  --course-fill: #6ec4dc;
+}
+
+:host-context([data-theme='dark']) .tone-rosa {
+  --course-accent: #e08a9a;
+  --course-fill: #f0a8b4;
+}
+
+:host-context([data-theme='dark']) .tone-naranja {
+  --course-accent: #e09a58;
+  --course-fill: #f0b46a;
+}
+
+:host-context([data-theme='dark']) .tone-violeta {
+  --course-accent: #7a8ec8;
+  --course-fill: #94a8dc;
+}
+
 .pixel {
   position: absolute;
   width: 6px;
